@@ -1,0 +1,167 @@
+
+/* ==========================================
+   ÍNDICE DE CONTENIDOS - ESTILO WIKIEDUCATOR
+   ========================================== */
+
+.indice-tema {
+    width: fit-content;
+    max-width: 100%;
+    min-width: 260px;
+    margin: 20px 0;
+    padding: 10px 14px;
+
+    border: 1px solid #b8b8b8;
+    border-radius: 0;
+    background: #f8f8f8;
+
+    font-size: 0.82rem;
+    color: #222;
+}
+
+/* Cabecera centrada y negra */
+.indice-tema summary {
+    cursor: pointer;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #111;
+    list-style: none;
+}
+
+/* Ocultar marcador triangular nativo */
+.indice-tema summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Indicador de estado */
+.indice-tema summary::after {
+    content: " [mostrar]";
+    color: #2563eb;
+    font-size: 0.75rem;
+    font-weight: 400;
+}
+
+.indice-tema[open] summary::after {
+    content: " [ocultar]";
+}
+
+/* Lista principal */
+.indice-tema .table-of-contents > ul {
+    list-style: none;
+    padding: 0;
+    margin: 8px 0 0;
+    counter-reset: apartado;
+}
+
+/* Apartados principales */
+.indice-tema .table-of-contents > ul > li {
+    counter-increment: apartado;
+    counter-reset: subapartado;
+}
+
+.indice-tema .table-of-contents > ul > li > a::before {
+    content: counter(apartado) " ";
+}
+
+/* Subapartados */
+.indice-tema .table-of-contents ul ul {
+    list-style: none;
+    padding-left: 26px;
+    margin: 0;
+}
+
+.indice-tema .table-of-contents > ul > li > ul > li {
+    counter-increment: subapartado;
+    counter-reset: subsubapartado;
+}
+
+.indice-tema .table-of-contents > ul > li > ul > li > a::before {
+    content: counter(apartado) "."
+    counter(subapartado) " ";
+}
+
+/* Tercer nivel: 1.1.1 */
+.indice-tema .table-of-contents ul ul ul {
+    padding-left: 26px;
+}
+
+.indice-tema .table-of-contents > ul > li > ul > li > ul > li {
+    counter-increment: subsubapartado;
+}
+
+.indice-tema .table-of-contents > ul > li > ul > li > ul > li > a::before {
+    content: counter(apartado) "."
+    counter(subapartado) "."
+    counter(subsubapartado) " ";
+}
+
+/* Enlaces azules */
+.indice-tema .table-of-contents a {
+    color: #0645ad;
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 400;
+}
+
+.indice-tema .table-of-contents a:hover {
+    text-decoration: underline;
+    color: #0b0080;
+}
+
+/* Espaciado compacto */
+.indice-tema .table-of-contents li {
+    margin: 2px 0;
+    line-height: 1.45;
+}
+
+/* Eliminar posibles estilos de lista de VitePress */
+.indice-tema .table-of-contents ul {
+    list-style-type: none;
+}
+
+/* Modo oscuro */
+.dark .indice-tema {
+    background: #252525;
+    border-color: #555;
+    color: #eee;
+}
+
+.dark .indice-tema summary {
+    color: #f5f5f5;
+}
+
+.dark .indice-tema .table-of-contents a {
+    color: #93c5fd;
+}
+
+.dark .indice-tema .table-of-contents a:hover {
+    color: #bfdbfe;
+}
+
+/* Móviles */
+@media (max-width: 640px) {
+    .indice-tema {
+        max-width: 100%;
+        min-width: 0;
+    }
+}
+
+/* Índice compacto cuando está plegado */
+.indice-tema:not([open]) {
+    min-width: 0;
+    width: fit-content;
+    padding: 1px 2px;
+    margin: 4px 0;
+}
+
+/* Cabecera más pequeña */
+.indice-tema summary {
+    font-size: 0.78rem;
+    line-height: 1.3;
+    padding: 0;
+}
+
+/* Eliminar espacios adicionales de VitePress */
+.indice-tema summary p {
+    margin: 0;
+}
