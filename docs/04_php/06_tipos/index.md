@@ -4,14 +4,31 @@ description: Tipos de datos
 date: 19/10/26
 ---
 <objetivos>
-$
+
+* Los diferentes tipos simples de php
+
+* Diferentes formatos de int
+
+* String: comillas dobles, comillas simples
+
+* Heredoc y nowdoc
+
 </objetivos>
-# Tipos de datos
-## 5. Números enteros: `int`
+
+<details class="indice-tema" open>
+<summary>Contenidos</summary>
+
+[[toc]]
+
+</details>
+
+
+
+
+## Tipos numéricos o enteros
 
 Un número entero es un valor numérico sin parte decimal.
-
-PHP permite representar enteros utilizando diferentes sistemas de numeración.
+En php un número se puede  utilizando diferentes sistemas de numeración. Habitualmente usamos el decimal. Éste siempre se almacenará en memoria en binario, y cuando lo viualicemos, aparecerá en decimal, salvo que de alguna forma especifiquemos otro sistema
 
 ### 5.1. Representación de números enteros
 
@@ -37,7 +54,6 @@ echo $binario;     // 10
 Todos estos valores son de tipo `int`.
 
 ::: tip 💡 Importante
-El sistema de numeración utilizado en el código no modifica el tipo de dato.
 
 ```php
 $a = 10;
@@ -51,22 +67,24 @@ var_dump($a, $b, $c, $d);
 Las cuatro variables contienen el mismo valor entero: `10`.
 :::
 
-### 5.2. Notación octal antigua
 
-PHP también admite la notación octal tradicional, que comienza por `0`.
+PHP también admite la notación octal tradicional, que comienza por `0`. (Esta es la forma antigua de representar el valor en este sistema, a partir de la versión 8.1 (noviembre de 2021) se incorporó <color>0o</color>m versión más legible y recomendada).
+
+<PhpRunner>
 
 ```php
-$numero = 067;
+<?php
+$numero = 0o67;
+
+echo $numero; // 55
+$numero = o67;
 
 echo $numero; // 55
 ```
 
-Desde PHP 8.1 podemos utilizar el prefijo explícito `0o`, más legible y recomendable.
+</PhpRunner>
 
 ```php
-$numero = 0o67;
-
-echo $numero; // 55
 ```
 
 ::: warning ⚠️ Cuidado con los ceros iniciales
@@ -76,6 +94,23 @@ Además, un literal como `089` no es válido porque contiene dígitos no permiti
 
 Para representar números decimales, evita los ceros iniciales.
 :::
+
+PHP permite utilizar el carácter `_` como **separador visual de dígitos** (desde PHP 7.4), con el objetivo de mejorar la **legibilidad** de los números. Su colocación es libre entre dígitos: no es obligatorio seguir una agrupación lógica, aunque es lo recomendable. No afecta al valor numérico.
+Se puede usar con cualquier sistema de numeración
+
+<PhpRunner>
+
+```php
+<?php
+$numero = 1_000_000;       // Decimal
+$binario = 0b1010_1100;    // Binario
+$octal = 0o12_34;          // Octal
+$hexadecimal = 0xFF_AA;    // Hexadecimal
+
+var_dump($numero, $binario, $octal, $hexadecimal);
+```
+
+</PhpRunner>
 
 ### 5.3. Visualización de enteros
 
