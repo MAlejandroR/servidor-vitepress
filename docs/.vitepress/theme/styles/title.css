@@ -1,0 +1,24 @@
+/* Reiniciar numeración al comienzo de cada página */
+.vp-doc {
+    counter-reset: h2;
+}
+
+/* Títulos de nivel 2 */
+.vp-doc h2 {
+    counter-reset: h3;
+    counter-increment: h2;
+}
+
+.vp-doc h2::before {
+    content: counter(h2) ". ";
+}
+
+/* Títulos de nivel 3 */
+.vp-doc h3 {
+    counter-increment: h3;
+}
+
+.vp-doc h3::before {
+    content: counter(h2) "." counter(h3) ". ";
+}
+

@@ -46,16 +46,21 @@ export function dawsContainers(md: MarkdownIt) {
     md.use(container, 'pageinfo', {
         render(tokens, idx) {
             if (tokens[idx].nesting === 1) {
-                const title = tokens[idx].info
+
+
+                const info = tokens[idx].info
                     .trim()
                     .replace(/^pageinfo\s*/i, '')
                     .trim()
-
-                return `
-                    <div class="daws-pageinfo">
-                    <strong>${md.utils.escapeHtml(title || 'Información Adicional')}</strong>
-                    <div class="daws-pageinfo__body">
-`
+                const [title, icon = 'fa-solid fa-circle-info'] = info
+                    .split('|')
+                    .map(value => value.trim())
+                return `<div class="daws-pageinfo">
+                                <div class="daws-pageinfo__header">
+                                    <i class="${md.utils.escapeHtml(icon)}" aria-hidden="true"></i>
+                                    <strong>${md.utils.escapeHtml(title || 'Informacion Adicional')}</strong>
+                                </div>
+                            <div class="daws-pageinfo__body">\n`
             }
 
             return '</div></div>\n'

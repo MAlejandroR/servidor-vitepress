@@ -86,12 +86,73 @@
     font-weight: 800;
 }
 
+/* Cabecer page info*/
+
+
+  .daws-pageinfo__header {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+
+      padding: .65rem 1rem;
+
+      /*backg   round: bisque;*/
+      /*color: white;*/
+      background: linear-gradient(
+              to right,
+              #FEF3C7 0%,
+              #FEF3C7 50%,
+              #FFFBEB 100%
+      );
+
+      color: #92400E;
+
+      border-radius: 20px;
+
+
+      font-size: 1.8rem;
+      font-weight: 700;
+  }
+.daws-pageinfo__kicker {
+    margin: 0;
+    padding: 0.65rem 1rem;
+
+    background: #15803d;
+    color: white;
+
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: normal;
+    text-transform: none;
+
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+/* Título del bloque */
+.daws-pageinfo__sub {
+    margin: 0;
+    padding: 1rem 1.25rem 0.6rem;
+
+    background: rgba(22, 163, 74, 0.07);
+    color: inherit;
+
+    border-bottom: 2px solid rgba(22, 163, 74, 0.25);
+
+    font-size: 2rem;
+    font-weight: 800;
+}
+
 .daws-pageinfo {
     margin: 1.4rem 0 2rem;
     padding: 1rem 1.15rem 1.15rem;
     border-radius: 20px;
-    background: #fff;
-    border: 3px solid #f59e0b;
+    border: 1px solid #F59E0B;
+    background: #FFFBEB;
+
+    /*background: #fff;*/
+    /*border: 3px solid #f59e0b;*/
     box-shadow: 8px 8px 0 #f59e0b;
 }
 

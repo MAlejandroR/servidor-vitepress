@@ -240,6 +240,10 @@ export default withMermaid(
                             link: '/04_php/05_declaraciones/',
                         },
                         {
+                            text: 'Tipos de datos',
+                            link: '/04_php/06_tipos/',
+                        },
+                        {
                             text: 'Control selectivo',
                             link: '/construccion',
                         },

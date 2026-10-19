@@ -3,6 +3,7 @@ import type { Theme } from 'vitepress'
 import './custom.css'
 import './styles/containers.css'
 import './styles/sumary.css'
+import './styles/table.css'
 import Layout from './Layout.vue'
 import '@fortawesome/fontawesome-free/css/all.min.css'
 
