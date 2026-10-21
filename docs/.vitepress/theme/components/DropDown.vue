@@ -1,22 +1,22 @@
+
 <script setup lang="ts">
-import {ref} from 'vue'
+import { ref } from 'vue'
 
 const props = defineProps<{
-  title?:string
-  password?:string
+  title?: string
+  password?: string
 }>()
 
-
 const dialog = ref<HTMLDialogElement | null>(null)
+const unlocked = ref<boolean>(false)
+const enteredPassword = ref<string>('')
+const error = ref<boolean>(false)
 
-const unlocked = ref <bool>(false)
-const enteredPassword = ref <string>('')
-const error = ref<bool>(false)
+// Controlar apertura del desplegable
+function handleToggle(event: Event) {
+  const details = event.target as HTMLDetailsElement
 
-const handleToggle = (event: Event)=> {
-  const details = event.target as HTMLDialogElement
-
-//Sin contraseña ya desbloqueado
+  // Sin contraseña o ya desbloqueado
   if (!props.password || unlocked.value) {
     return
   }
@@ -26,28 +26,33 @@ const handleToggle = (event: Event)=> {
     dialog.value?.showModal()
   }
 }
-  function unlock() {
-    if (enteredPassword.value === props.password) {
-      unlocked.value = true
-      error.value = false
-      dialog.value?.close()
-    } else {
-      error.value = true
-    }
-  }
-  function closeDialog() {
-    enteredPassword.value = ''
+
+// Comprobar contraseña
+function unlock() {
+  if (enteredPassword.value === props.password) {
+    unlocked.value = true
     error.value = false
+    enteredPassword.value = ''
     dialog.value?.close()
+  } else {
+    error.value = true
   }
+}
+
+// Cerrar diálogo
+function closeDialog() {
+  enteredPassword.value = ''
+  error.value = false
+  dialog.value?.close()
+}
 </script>
-
-
 
 <template>
   <details @toggle="handleToggle">
     <summary>
-      <h2>{{ title ? title : 'Ver contenido' }}</h2>
+      <span class="title">
+        {{ title || 'Ver contenido' }}
+      </span>
     </summary>
 
     <div class="content">
@@ -66,7 +71,7 @@ const handleToggle = (event: Event)=> {
           type="password"
           placeholder="Contraseña"
           autofocus
-      >
+      />
 
       <p v-if="error" class="error">
         Contraseña incorrecta
@@ -86,18 +91,74 @@ const handleToggle = (event: Event)=> {
 </template>
 
 <style scoped>
+/* Título del desplegable */
+.title {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  background-color: #e8f1fc;
+  border-radius: 8px;
+  padding: 6px 12px;
+  margin: 0;
+
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* Flecha integrada en el título */
+/*
+.title::after {
+  content: "▶";
+  font-size: 1.2em;
+  color: #6485aa !important;
+  background: transparent !important;
+  transition: transform 0.2s;
+}
+*/
+
+
+/* Girar flecha al desplegar */
+/*
+details[open] .title::after {
+  transform: rotate(90deg);
+}
+*/
+.title::after {
+  content: "";
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-right: 5px solid #6485aa;
+  border-bottom: 5px solid #6485aa;
+  transform: rotate(-45deg);
+  transition: transform 0.2s;
+}
+
+details[open] .title::after {
+  transform: rotate(45deg);
+}
+
+
+/* Cabecera del desplegable */
 summary {
+  display: flex;
+  align-items: center;
+  list-style: none;
   cursor: pointer;
 }
 
-summary h2 {
-  display: inline;
+summary::-webkit-details-marker {
+  display: none;
 }
 
+/* Contenido */
 .content {
   margin-top: 1rem;
 }
 
+/* Diálogo de contraseña */
 dialog {
   border: none;
   border-radius: 8px;

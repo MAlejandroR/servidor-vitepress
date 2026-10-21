@@ -370,3 +370,7 @@
   }
 
 }
+/* Evitar reajustes automáticos al plegar secciones */
+html {
+  overflow-anchor: none;
+}

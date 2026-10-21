@@ -4,6 +4,7 @@ import './custom.css'
 import './styles/containers.css'
 import './styles/sumary.css'
 import './styles/table.css'
+import './styles/title.css'
 import Layout from './Layout.vue'
 import '@fortawesome/fontawesome-free/css/all.min.css'
 
@@ -22,6 +23,7 @@ import DropDown from  './components/DropDown.vue'
 import Cmd from './components/Cmd.vue'
 import CmdPane from './components/CmdPane.vue'
 import PhpRunner from './components/PhpRunner.vue';
+import CollapsibleHeading from './components/CollapsibleHeading.vue';
 
 export default {
   extends: DefaultTheme,
@@ -41,5 +43,6 @@ export default {
     app.component('Cmd', Cmd)
     app.component('CmdPane', CmdPane)
     app.component('PhpRunner', PhpRunner)
+    app.component('CollapsibleHeading', CollapsibleHeading)
   },
 } satisfies Theme

@@ -59,10 +59,17 @@ onMounted(() => {
     <template #nav-bar-content-after>
       <PrintButton/>
     </template>
+
+    <!-- Plegado automático de títulos h1, h2 y h3 -->
+    <template #doc-after>
+      <CollapsibleHeading/>
+    </template>
+
     <template #layout-bottom>
       <VisitorCount/>
     </template>
   </Layout>
+
   <Teleport to="body">
     <div
         v-if="open"

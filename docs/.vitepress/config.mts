@@ -242,6 +242,22 @@ export default withMermaid(
                         {
                             text: 'Tipos de datos',
                             link: '/04_php/06_tipos/',
+                            collapsed: true,
+                            items: [{
+                                text: 'Los Números',
+                                link: '/04_php/06_tipos/01_Int',
+
+                            },
+                                {
+                                    text: 'Null, Bool y funciones de valores',
+                                    link: '/04_php/06_tipos/02_NullBool',
+
+                                },
+                                {
+                                    text: 'Los String',
+                                    link: '/04_php/06_tipos/03_String',
+
+                                }]
                         },
                         {
                             text: 'Control selectivo',
