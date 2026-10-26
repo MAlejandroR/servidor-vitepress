@@ -176,12 +176,12 @@ docker exec proxy-proxy-1 nginx -T
 ```
 El nombre del contenedor puede variar. Si ese `exec` no lo encuentra, míralo con `docker ps` y usa el que aparezca. En la configuración tienen que salir `alumno_1.dwes.com` y `proxy_pass http://web_1:80`.
 ## 6. El segundo y el tercer sitio
-Repite el paso 3 en `web_2` y en `web_3`, cambiando los nombres. No copies el `index.php` de `web_1` sin modificarlo: si los tres dicen lo mismo, parecerán el mismo sitio.
+Repite el paso 3 en `web_2` y en `web_3`, cambiando los nombres. No copies el `index.md` de `web_1` sin modificarlo: si los tres dicen lo mismo, parecerán el mismo sitio.
 | Proyecto | Servicio web | Contenedor | MySQL | phpMyAdmin | Base de datos |
 | --- | --- | --- | --- | --- | --- |
 | `web_2` | `web_2` | `web2` | `mysql_2` | `phpmyadmin_2` | `web_2` |
 | `web_3` | `web_3` | `web3` | `mysql_3` | `phpmyadmin_3` | `web_3` |
-En cada `index.php`, el título y el párrafo deben decir `web_2` o `web_3` y su dominio. En phpMyAdmin cambia también la URI:
+En cada `index.md`, el título y el párrafo deben decir `web_2` o `web_3` y su dominio. En phpMyAdmin cambia también la URI:
 ```yaml
 PMA_HOST: mysql_2
 PMA_ABSOLUTE_URI: http://pma_2.dwes.com/
@@ -242,7 +242,7 @@ Abre `http://pma_1.dwes.com`. Entra con el usuario `web_1` y la contraseña `web
 docker logs proxy-proxy-1
 ```
 Si dice `host not found in upstream`, Nginx no ha podido resolver el nombre de `proxy_pass`. Arranca antes el `web` correspondiente y vuelve a levantar el proxy. Si dice `unexpected` o señala una línea de un `.conf`, falta un `;` o hay dos `location /` dentro del mismo `server`.
-**`alumno_2` enseña la página de `alumno_1`.** El proxy sí está encaminando. El `index.php` de `web_2` sigue siendo una copia del de `web_1`.
+**`alumno_2` enseña la página de `alumno_1`.** El proxy sí está encaminando. El `index.md` de `web_2` sigue siendo una copia del de `web_1`.
 **Al añadir un dominio se caen los que ya iban.** Has parado el proxy en vez de recargarlo, y el contenedor nuevo todavía no estaba en `proxy_network`. Con `nginx -s reload`, si el nombre no existe, Nginx se queda con la configuración anterior y los sitios viejos siguen en pie.
 **`docker compose up` dice que el nombre del contenedor ya está en uso.** `web1`, `mysql` o el puerto `3306` están repetidos en otro proyecto. Cada proyecto necesita su `container_name` y no debe publicar el puerto de MySQL.
 **phpMyAdmin pide el servidor o vuelve a una dirección rara.** Falta `PMA_HOST` o `PMA_ABSOLUTE_URI`. Después de cambiar el compose hay que recrear ese servicio: `docker compose up -d`.

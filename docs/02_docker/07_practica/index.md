@@ -34,7 +34,7 @@ docker run -d --name web -p 8800:80 \
   -v "$PWD/app:/var/www/html" php:8.3-apache
 ```
 
-Navegador: `http://localhost:8800`. Cambia el `index.php` en el anfitrión y recarga.
+Navegador: `http://localhost:8800`. Cambia el `index.md` en el anfitrión y recarga.
 
 ```bash
 docker exec -it web bash

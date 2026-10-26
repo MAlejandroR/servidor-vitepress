@@ -3,6 +3,7 @@ import { withMermaid } from 'vitepress-plugin-mermaid'
 import { fetchVisitCount, goatCounter } from './site'
 import { dawsContainers } from './markdows/containers'
 import footnote from 'markdown-it-footnote';
+import { fileURLToPath, URL } from 'node:url'
 
 const dawsVisitCount = await fetchVisitCount()
 
@@ -19,6 +20,12 @@ export default withMermaid(
             define: {
                 __DAWS_VISIT_COUNT__: JSON.stringify(dawsVisitCount),
             },
+            resolve:{
+                // alias para establecer el dir de los apuntes (en docs)
+                alias: {
+                    '@apuntes':fileURLToPath(new URL('../',import.meta.url))
+                }
+            }
         },
 
         markdown: {
@@ -260,16 +267,26 @@ export default withMermaid(
                                 }]
                         },
                         {
-                            text: 'Control selectivo',
-                            link: '/construccion',
+                            text: 'Estructuras de control',
+                            link: '/04_php/07_estructuras_control/',
+                            collapsed: true,
+                            items: [
+                                {
+                                    text: 'Condicionales',
+                                    link: '/04_php/07_estructuras_control/01_selectivo/',
                         },
-                        {
-                            text: 'Control repetitivo',
-                            link: '/construccion',
-                        },
+                                {
+                                    text: 'Iterativas',
+                                    link: '/04_php/07_estructuras_control/02_repetitivo/',
+                        }]},
+
                         {
                             text: 'Expresiones',
                             link: '/construccion',
+                        },
+                        {
+                            text: 'Arrays',
+                            link: '/04_php/11_arrays/',
                         },
                     ],
                 },

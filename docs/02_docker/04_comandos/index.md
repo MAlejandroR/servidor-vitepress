@@ -792,7 +792,7 @@ Los ficheros continúan estando físicamente en nuestro equipo y podemos modific
 
 :::
 
-Modifica ahora `index.php` y recarga:
+Modifica ahora `index.md` y recarga:
 
 ```text
 http://localhost:8800

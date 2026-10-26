@@ -36,6 +36,7 @@ Cómo usamos los elementos declarados
 * Es una <color>acción</color> o instrucción por la que _reservaremos memoria para almacener valores de un determinado elemento_ que posteriormente utilizaremos.
 
 Un programa es <color>un conjunto de instrucciones</color> que operan <color>con valores o datos</color>, o invocan a funciones que previamente habré declarado.
+
 <img
   src="./images/sistema_ipo_datos.png"
   alt="Sistema IPO"

@@ -374,3 +374,18 @@
 html {
   overflow-anchor: none;
 }
+
+
+/* Tipografía general de los apuntes */
+:root {
+  --vp-font-family-base: Verdana, sans-serif;
+}
+
+.vp-doc p,
+.vp-doc li,
+.vp-doc td,
+.vp-doc th {
+  font-family: Verdana, sans-serif;
+  font-size: 1.4rem;
+  line-height: 1.5;
+}

@@ -24,6 +24,8 @@ import Cmd from './components/Cmd.vue'
 import CmdPane from './components/CmdPane.vue'
 import PhpRunner from './components/PhpRunner.vue';
 import CollapsibleHeading from './components/CollapsibleHeading.vue';
+import Ejercicio from "./components/ejercicios/Ejercicio.vue";
+import TituloEjercicio from "./components/ejercicios/TituloEjercicio.vue";
 
 export default {
   extends: DefaultTheme,
@@ -44,5 +46,7 @@ export default {
     app.component('CmdPane', CmdPane)
     app.component('PhpRunner', PhpRunner)
     app.component('CollapsibleHeading', CollapsibleHeading)
+    app.component('Ejercicio', Ejercicio)
+    app.component('TituloEjercicio', TituloEjercicio)
   },
 } satisfies Theme
