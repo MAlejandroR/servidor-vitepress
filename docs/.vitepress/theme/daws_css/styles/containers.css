@@ -1,0 +1,130 @@
+/* ============================================================
+   Containers Markdown-it: clases emitidas por crearContainer.ts
+   ============================================================ */
+
+/* Base: geometria y tipografia comunes */
+.vp-doc :is(.daws-objetivos, .daws-finalidad, .daws-previo, .daws-definicion,
+  .daws-pageinfo, .daws-recuerda, .daws-actividad, .daws-practica,
+  .daws-pregunta, .daws-referencias) {
+  --container-color: var(--daws-primary);
+  --container-bg: var(--daws-blue-light);
+  margin: 1.5rem 3%;
+  border: 2px solid var(--container-color);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--container-bg);
+  box-shadow: 6px 6px 0 var(--container-color);
+  color: var(--vp-c-text-1);
+  font-size: inherit;
+  line-height: 1.5;
+}
+
+/* Colores por finalidad didactica */
+.vp-doc .daws-objetivos, .vp-doc .daws-practica {
+  --container-color: var(--daws-green);
+  --container-bg: var(--daws-green-light);
+}
+.vp-doc .daws-previo {
+  --container-color: var(--daws-teal);
+  --container-bg: var(--daws-teal-light);
+}
+.vp-doc .daws-pageinfo, .vp-doc .daws-recuerda {
+  --container-color: var(--daws-amber);
+  --container-bg: var(--daws-amber-light);
+}
+.vp-doc .daws-pregunta {
+  --container-color: var(--daws-violet);
+  --container-bg: var(--daws-violet-light);
+}
+
+/* Cabeceras: objetivos, definicion, pageinfo, recuerda, practica */
+.vp-doc :is(.daws-objetivos, .daws-definicion, .daws-pageinfo,
+  .daws-recuerda, .daws-practica) > :is(
+    .daws-objetivos__header, .daws-definicion__header, .daws-pageinfo__header,
+    .daws-recuerda__header, .daws-practica__header) {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  padding: .7rem 1rem;
+  margin: 0;
+  background: var(--container-color);
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+.vp-doc :is(.daws-objetivos__header, .daws-definicion__header,
+  .daws-pageinfo__header, .daws-recuerda__header,
+  .daws-practica__header) i { font-size: 1.1em; }
+
+/* Cuerpos de todos los containers */
+.vp-doc :is(.daws-objetivos__body, .daws-finalidad__body, .daws-previo__body,
+  .daws-definicion__body, .daws-pageinfo__body, .daws-recuerda__body,
+  .daws-actividad__body, .daws-practica__body, .daws-pregunta__body,
+  .daws-referencias__body) {
+  padding: 1rem 1.25rem;
+  background: var(--container-bg);
+  font-size: inherit;
+  line-height: 1.5;
+}
+.vp-doc :is(.daws-objetivos__body, .daws-finalidad__body, .daws-previo__body,
+  .daws-definicion__body, .daws-pageinfo__body, .daws-recuerda__body,
+  .daws-actividad__body, .daws-practica__body, .daws-pregunta__body,
+  .daws-referencias__body) > :first-child { margin-top: 0; }
+.vp-doc :is(.daws-objetivos__body, .daws-finalidad__body, .daws-previo__body,
+  .daws-definicion__body, .daws-pageinfo__body, .daws-recuerda__body,
+  .daws-actividad__body, .daws-practica__body, .daws-pregunta__body,
+  .daws-referencias__body) > :last-child { margin-bottom: 0; }
+
+/* Objetivos: header + content + title + body */
+.vp-doc .daws-objetivos__content { padding: 1rem 1.25rem; background: var(--container-bg); }
+.vp-doc .daws-objetivos__title {
+  margin: 0 0 .7rem;
+  padding-bottom: .6rem;
+  border-bottom: 2px solid var(--container-color);
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+.vp-doc .daws-objetivos__content .daws-objetivos__body { padding: 0; }
+
+/* LabeledBox: kicker + sub + body */
+.vp-doc :is(.daws-finalidad__kicker, .daws-referencias__kicker,
+  .daws-previo__kicker, .daws-actividad__kicker, .daws-pregunta__kicker) {
+  margin: 0;
+  padding: .85rem 1.15rem .2rem;
+  color: var(--container-color);
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.vp-doc :is(.daws-finalidad__sub, .daws-referencias__sub,
+  .daws-previo__sub, .daws-actividad__sub, .daws-pregunta__sub) {
+  margin: 0;
+  padding: 0 1.15rem .85rem;
+  color: var(--vp-c-text-1);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+/* Listas: heredan la tipografia general */
+.vp-doc :is(.daws-objetivos, .daws-finalidad, .daws-previo, .daws-definicion,
+  .daws-pageinfo, .daws-recuerda, .daws-actividad, .daws-practica,
+  .daws-pregunta, .daws-referencias) :is(ul, ol) {
+  padding-left: 1.5rem;
+}
+
+/* Containers nativos de VitePress */
+.vp-doc .custom-block:is(.tip, .warning, .danger, .info) {
+  font-size: inherit;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .vp-doc :is(.daws-objetivos, .daws-finalidad, .daws-previo, .daws-definicion,
+    .daws-pageinfo, .daws-recuerda, .daws-actividad, .daws-practica,
+    .daws-pregunta, .daws-referencias) {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}

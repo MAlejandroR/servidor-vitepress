@@ -3,7 +3,7 @@ import DefaultTheme from 'vitepress/theme'
 import {onContentUpdated, useRoute, withBase} from 'vitepress'
 import {onMounted, ref, watch} from 'vue'
 import PrintButton from './components/PrintButton.vue'
-import VisitorCount from './components/VisitorCount.vue';
+import Footer from './components/Footer.vue' /*incluye VistorCount*/
 import {getFavicon} from "./favicon";
 
 const {Layout} = DefaultTheme
@@ -66,7 +66,7 @@ onMounted(() => {
     </template>
 
     <template #layout-bottom>
-      <VisitorCount/>
+      <Footer/>
     </template>
   </Layout>
 

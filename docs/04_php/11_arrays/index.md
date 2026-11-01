@@ -296,5 +296,24 @@ _Procedemos igual,pero especificando a través de su clave el elemento que quere
 ### Operadores de arrays
  MRM hablar del desempaquetado (...)
 
-<Ejercicio id= "php-arrays-001" />
+# Ejercicios
+## Incorporarlos a tus apuntes
+
+<Ejercicio id="php-arrays-001" />
+
+<Ejercicio id="php-arrays-002" />
+
+<Ejercicio id="php-arrays-003" />
+
+<Ejercicio id="php-arrays-004" />
+
+<Ejercicio id="php-arrays-005" />
+
+<Ejercicio id="php-arrays-006" />
+
+<Ejercicio id="php-arrays-007" />
+
+<Ejercicio id="php-arrays-008" />
+
+<Ejercicio id="php-arrays-009" />
 

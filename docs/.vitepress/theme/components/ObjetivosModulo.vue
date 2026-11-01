@@ -4,7 +4,7 @@
     <h2>Objetivo general</h2>
     <p class="obj__lead">
       <strong>Construir, comprender y desplegar una aplicación web real</strong>,
-      Con código <strong>organizado</strong>, un entorno reproducible y un flujo de trabajo que permita
+      con código <strong>organizado</strong>, un entorno reproducible y un flujo de trabajo que permita
       <strong>desarrollarla, mantenerla y evolucionarla</strong>
     </p>
 

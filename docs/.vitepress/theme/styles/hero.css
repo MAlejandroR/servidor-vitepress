@@ -1,0 +1,17 @@
+/* Segundo boton de la portada */
+.VPHomeHero .actions .action:nth-child(2) .VPButton {
+  background-color: var(--daws-primary);
+  border-color: var(--daws-primary);
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--daws-primary) 25%, transparent);
+}
+.VPHomeHero .actions .action:nth-child(2) .VPButton:hover {
+  background-color: var(--daws-primary-hover);
+  border-color: var(--daws-primary-hover);
+  transform: translateY(-2px);
+}
+/* Pagina indice de contenidos */
+.pagina-contenidos .VPDoc .container { max-width: 1200px !important; }
+.pagina-contenidos .VPDoc :is(.content, .content-container) { max-width: none !important; }
+.pagina-contenidos .VPDocFooter { display: none; }

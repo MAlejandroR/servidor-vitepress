@@ -4,7 +4,7 @@ description: Las declaraciones en php van implícitas a las asignaciones
 date: 15/10/26
 ---
 # Las declaraciones en php
-<objetivos>
+::: objetivos
 Declarar es una de las instrucciones más importantes
 
 En php ¿Declaramos variables?
@@ -18,7 +18,7 @@ Identificar los principales tipos de datos de PHP.
 Representar números enteros en diferentes bases.
 
 Cómo usamos los elementos declarados
-</objetivos>
+::: 
 
 
 <details class="indice-tema" open>

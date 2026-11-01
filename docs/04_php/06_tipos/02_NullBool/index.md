@@ -3,14 +3,14 @@ title: Tipos de datos
 description: Tipos de datos
 date: 19/10/26
 ---
-<objetivos>
+::: objetivos
 
 * Los valores null y vacío en variables
 
 * Los valores booleanos
 
 * Funciones para verificar valores de variables
-</objetivos>
+::: 
 
 <details class="indice-tema" open>
 <summary>Contenidos</summary>

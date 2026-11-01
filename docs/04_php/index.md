@@ -3,7 +3,9 @@ title: PHP  WWW en nuettro entorno de trabajo
 description: Introducción a qué es php
 date: 27/9/26
 ---
-<Objetivos title="Lenguaje PHP">
+
+
+::: objetivos Lenguaje PHP
 
 - Estudiaremos una tecnología (de las muchas posibles), para desarrollar aplicaciones en el servidor
 - Siempre estudiamos desarrollo web
@@ -11,7 +13,7 @@ date: 27/9/26
 - Ver versiones
 - Referencias
 
-</Objetivos>
+::: 
 
 
 :::objetivos  Lenguaje PHP

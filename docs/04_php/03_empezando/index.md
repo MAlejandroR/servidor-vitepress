@@ -4,7 +4,9 @@ title: Empezando con PHP
 
 # Empezando con PHP
 
-<Objetivos title="Empezando con PHP">
+
+
+::: objetivos Empezando con PHP
 
 - Entender un **programa** como un conjunto de instrucciones que trabajan con valores.
 - Diferenciar **léxico**, **sintaxis** y **semántica**.
@@ -13,7 +15,7 @@ title: Empezando con PHP
 - Conocer los principales **tipos de valores** con los que trabaja PHP.
 - Ver nuestros primeros ejemplos de código PHP.
 
-</Objetivos>
+::: 
 
 
 ## Programa: conjunto de instrucciones

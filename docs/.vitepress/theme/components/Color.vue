@@ -19,22 +19,22 @@ defineProps({
 }
 
 .marca {
-  color: #4f46e5;
+  color: var(--daws-violet);
 }
 
 .verde {
-  color: #16a34a;
+  color: var(--daws-green);
 }
 
 .azul {
-  color: #2496ed;
+  color: var(--daws-primary);
 }
 
 .rojo {
-  color: #ff2d20;
+  color: var(--daws-red);
 }
 
 .naranja {
-  color: #d97706;
+  color: var(--daws-amber);
 }
 </style>

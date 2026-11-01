@@ -1,0 +1,12 @@
+/* Tablas comparativas */
+.tabla-comparativa { max-width: 750px; margin: 1.5rem auto; }
+.tabla-comparativa table { width: 100%; display: table; table-layout: fixed; }
+.tabla-comparativa th {
+  background: var(--daws-amber-light);
+  color: var(--daws-amber);
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-align: center;
+  padding: .8rem;
+}
+.tabla-comparativa td { padding: .7rem 1rem; vertical-align: middle; }

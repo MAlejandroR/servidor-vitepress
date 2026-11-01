@@ -4,11 +4,11 @@ title: Motivación
 
 # Motivación
 
-<objetivos title="De dónde partimos y hacia dónde">
+::: objetivos De dónde partimos y hacia dónde vamos
 - Lo que ya sabemos (DAW/DAM, Java, ganas)
 - Qué cambia al pasar a PHP cliente / servidor
 - Cómo vamos a trabajar: entender y practicar
-</objetivos>
+::: 
 
 ---
 

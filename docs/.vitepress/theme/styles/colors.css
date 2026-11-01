@@ -1,0 +1,45 @@
+/* Paleta DAWS: fuente unica de colores */
+:root {
+  --daws-primary: #24547D;
+  --daws-primary-hover: #173B59;
+  --daws-primary-light: #E8F1F8;
+  --daws-green: #176B50;
+  --daws-green-light: #EAF5EE;
+  --daws-amber: #9A5B08;
+  --daws-amber-light: #FFF7E8;
+  --daws-red: #B91C1C;
+  --daws-violet: #6D28D9;
+  --daws-violet-light: #F3E8FF;
+  --daws-teal: #0F766E;
+  --daws-teal-light: #E6F5F2;
+  --daws-blue-light: #EEF4F9;
+  --daws-heading-3: #334155;
+  --daws-heading-4: #475569;
+  --daws-bg: #FFFFFF;
+  --daws-bg-soft: #F5F7FA;
+  --daws-border: #E2E8F0;
+  --daws-text: #263445;
+  --daws-text-muted: #64748B;
+  --daws-header-bg: var(--daws-primary);
+  --daws-header-text: #FFFFFF;
+
+  --vp-c-brand-1: var(--daws-primary);
+  --vp-c-brand-2: var(--daws-primary-hover);
+  --vp-c-brand-3: var(--daws-green);
+  --vp-button-brand-bg: var(--daws-primary);
+  --vp-button-brand-hover-bg: var(--daws-primary-hover);
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(110deg, var(--daws-red), var(--daws-amber), var(--daws-violet), var(--daws-primary));
+}
+.dark {
+  --daws-bg: #1B1B1F;
+  --daws-bg-soft: #25252A;
+  --daws-border: #45454D;
+  --daws-text: #E5E7EB;
+  --daws-text-muted: #A6ADBA;
+  --daws-green-light: #17362B;
+  --daws-amber-light: #3B2B16;
+  --daws-blue-light: #1C3142;
+  --daws-violet-light: #302044;
+  --daws-teal-light: #153A37;
+}

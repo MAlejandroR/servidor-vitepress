@@ -1,0 +1,32 @@
+/* Numeracion automatica de titulos */
+.vp-doc { counter-reset: h1; }
+.vp-doc h1 { counter-increment: h1; counter-reset: h2; color: var(--daws-primary); }
+.vp-doc h2 { counter-increment: h2; counter-reset: h3; color: var(--daws-green); }
+.vp-doc h3 { counter-increment: h3; color: var(--daws-heading-3); }
+.vp-doc h4 { color: var(--daws-heading-4); }
+.vp-doc h1::before { content: counter(h1) '. '; }
+.vp-doc h2::before { content: counter(h1) '.' counter(h2) '. '; }
+.vp-doc h3::before { content: counter(h1) '.' counter(h2) '.' counter(h3) '. '; }
+
+/* Cabecera global VitePress */
+.VPNav, .VPNavBar,
+.VPNavBarTitle, .VPNavBarTitle .title,
+.VPNavBar .content, .VPNavBar .content-body {
+  background: var(--daws-header-bg) !important;
+}
+.VPNavBarTitle, .VPNavBarTitle .title,
+.VPNavBarMenuLink, .VPNavBarMenuGroup .text,
+.VPNavBarSearch, .VPNavBarAppearance, .VPNavBarSocialLinks {
+  color: var(--daws-header-text) !important;
+}
+.VPNavBar .divider, .VPNavBar .divider-line {
+  background: var(--daws-header-bg) !important;
+  border-color: var(--daws-header-bg) !important;
+}
+/* Se conservan los selectores por compatibilidad con posibles botones existentes */
+.boton-diapositivas {
+  background: var(--daws-primary-light);
+  color: var(--daws-primary);
+  border: 1px solid var(--daws-primary);
+}
+.boton-pdf { background: transparent; color: #fff; border: 1px solid #fff; }

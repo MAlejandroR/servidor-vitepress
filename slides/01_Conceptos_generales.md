@@ -4,12 +4,12 @@ title: Introducción al desarrollo web
 
 # Introducción
 
-<objetivos title="Qué desmontamos hoy">
+::: objetivos Qué desmontamos hoy
 - El nombre del módulo, por piezas
 - Qué es desarrollar una aplicación
 - Analizar → diseñar → implementar
 - Compilación vs interpretación
-</objetivos>
+::: 
 
 ---
 

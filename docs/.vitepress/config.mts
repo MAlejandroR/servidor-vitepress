@@ -1,9 +1,10 @@
 import { defineConfig } from 'vitepress'
 import { withMermaid } from 'vitepress-plugin-mermaid'
 import { fetchVisitCount, goatCounter } from './site'
-import { dawsContainers } from './markdows/containers'
+import { dawsContainers } from './markdows'
 import footnote from 'markdown-it-footnote';
 import { fileURLToPath, URL } from 'node:url'
+
 
 const dawsVisitCount = await fetchVisitCount()
 
@@ -339,10 +340,14 @@ export default withMermaid(
             socialLinks: [
                 {
                     icon: 'github',
-                    link: 'https://github.com/MAlejandroR/apuntes-dwes-vitepress.git',
-                },
+                    link: 'https://github.com/MAlejandroR/servidor-vitepress'
+                }
             ],
 
+            editLink: {
+                pattern: 'https://github.com/MAlejandroR/servidor-vitepress/edit/main/docs/:path',
+                text: '✏️ Proponer una mejora'
+            },
             search: {
                 provider: 'local',
                 options: {

@@ -4,7 +4,7 @@ description: Tipos de datos en PHP
 date: 19/10/26
 ---
 
-<objetivos>
+::: objetivos
 
 * Conocer los principales tipos de datos de PHP.
 * Comprender la diferencia entre tipos de valores y tipos utilizados en declaraciones.
@@ -13,7 +13,7 @@ date: 19/10/26
 * Comprender las cadenas de texto: comillas simples y dobles.
 * Conocer Heredoc y Nowdoc.
 
-</objetivos>
+::: 
 
 # Los tipos y valores en PHP
 

@@ -5,12 +5,12 @@ title: Presentación del curso
 
 # Presentación de DAWS
 
-<objetivos title="El módulo DAWS">
+::: objetivos El módulo DAWS
 - Entender el escenario cliente / servidor
 - Programar en PHP con criterio
 - Montar el entorno con Docker y no perder el trabajo con Git
 - Desarrollar aplicaciones profesionales usando Laravel como framework
-</objetivos>
+::: 
 
 ---
 

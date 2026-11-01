@@ -3,7 +3,7 @@ title: Tipos de datos
 description: Tipos de datos
 date: 19/10/26
 ---
-<objetivos>
+::: objetivos
 
 
 * Diferentes formatos de int
@@ -12,7 +12,7 @@ date: 19/10/26
 
 * Los números en coma flotante y problemas de representación 
 
-</objetivos>
+::: 
 
 <details class="indice-tema" open>
 <summary>Contenidos</summary>

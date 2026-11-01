@@ -2,14 +2,16 @@
 title: Docker
 ---
 
-<Objetivos title="Un mismo entorno de ejecución  para todos y para desplegar">
+
+
+::: objetivos Un mismo entorno de ejecución  para todos y para desplegar
 
 - Imagen, contenedor y volumen
 - Entender y crear ficheros  `Dockerfile` y `docker-compose` para crear el entorno
 - Crear el recurso (fichero) desde nuestro host, y que lo ejecute el apache/nginx del docker
 - Dedicaremos **una semana y media (~10-13 h)** de clase, no un recorte de 20 minutos
 
-</Objetivos>
+::: 
 
 En este módulo,  <color>Docker</color> es una parte de él: es **el entorno**. Evitaremos que  cada una en clase,  instale Apache y PHP de forma individual, esto crearía algo muy _heterogéneo_ en el aula:
  * Instalación en windows, linux

@@ -1,0 +1,71 @@
+/* Indice de contenidos compacto estilo Wikieducator */
+.indice-tema {
+  width: fit-content;
+  max-width: 100%;
+  min-width: 260px;
+  margin: 20px 0;
+  padding: 10px 14px;
+  border: 1px solid var(--daws-border);
+  border-radius: 0;
+  background: var(--daws-bg-soft);
+  color: var(--daws-text);
+  font-size: .82rem;
+}
+.indice-tema summary {
+  cursor: pointer;
+  text-align: center;
+  font-size: .78rem;
+  line-height: 1.3;
+  padding: 0;
+  font-weight: 700;
+  color: var(--daws-text);
+  list-style: none;
+}
+.indice-tema summary::-webkit-details-marker { display: none; }
+.indice-tema summary::after {
+  content: ' [mostrar]';
+  color: var(--daws-primary);
+  font-size: .75rem;
+  font-weight: 400;
+}
+.indice-tema[open] summary::after { content: ' [ocultar]'; }
+.indice-tema .table-of-contents > ul {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+  counter-reset: apartado;
+}
+.indice-tema .table-of-contents > ul > li {
+  counter-increment: apartado;
+  counter-reset: subapartado;
+}
+.indice-tema .table-of-contents > ul > li > a::before { content: counter(apartado) ' '; }
+.indice-tema .table-of-contents ul ul {
+  list-style: none;
+  padding-left: 26px;
+  margin: 0;
+}
+.indice-tema .table-of-contents > ul > li > ul > li {
+  counter-increment: subapartado;
+  counter-reset: subsubapartado;
+}
+.indice-tema .table-of-contents > ul > li > ul > li > a::before {
+  content: counter(apartado) '.' counter(subapartado) ' ';
+}
+.indice-tema .table-of-contents ul ul ul { padding-left: 26px; }
+.indice-tema .table-of-contents > ul > li > ul > li > ul > li { counter-increment: subsubapartado; }
+.indice-tema .table-of-contents > ul > li > ul > li > ul > li > a::before {
+  content: counter(apartado) '.' counter(subapartado) '.' counter(subsubapartado) ' ';
+}
+.indice-tema .table-of-contents a {
+  color: var(--daws-primary);
+  text-decoration: none;
+  font-size: .82rem;
+  font-weight: 400;
+}
+.indice-tema .table-of-contents a:hover { text-decoration: underline; color: var(--daws-primary-hover); }
+.indice-tema .table-of-contents li { margin: 2px 0; line-height: 1.45; }
+.indice-tema .table-of-contents ul { list-style-type: none; }
+.indice-tema:not([open]) { min-width: 0; width: fit-content; padding: 1px 2px; margin: 4px 0; }
+.indice-tema summary p { margin: 0; }
+@media (max-width: 640px) { .indice-tema { max-width: 100%; min-width: 0; } }

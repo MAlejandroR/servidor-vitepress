@@ -5,7 +5,7 @@ draft = false
 icon = "fas fa-clipboard-list"
 weight = 90
 +++
-{{<objetivos>}}
+{{::: objetivos}}
 Veremos algún aspecto no visto anteriormente de forma explícita
 Comentarios
 Ideas sobre MVC
