@@ -2,50 +2,117 @@
 <script setup>
 import { withBase } from 'vitepress'
 
+// const contenidos = [
+//   {
+//     numero: '1',
+//     icono: 'fa-solid fa-graduation-cap',
+//     titulo: 'Presentación y motivación',
+//     descripcion: 'Objetivos, metodología y organización del curso.',
+//     enlace: '/000_Presentacion/'
+//   },
+//   {
+//     numero: '2',
+//     icono: 'fa-solid fa-globe',
+//     titulo: 'La web y las redes',
+//     descripcion: 'Internet, redes y funcionamiento de la web.',
+//     enlace: '/02_entornos_herramientas/'
+//   },
+//   {
+//     numero: '3',
+//     icono: 'fa-brands fa-docker',
+//     titulo: 'Docker',
+//     descripcion: 'Imágenes y contenedores. Dockerfile y Docker Compose.',
+//     enlace: '/02_docker/'
+//   },
+//   {
+//     numero: '4',
+//     icono: 'fa-solid fa-laptop-code',
+//     titulo: 'Introducción a la programación web',
+//     descripcion: 'Algoritmos, datos y fundamentos de programación.',
+//     enlace: '/01_Conceptos_generales/'
+//   },
+//   {
+//     numero: '5',
+//     icono: 'fa-brands fa-php',
+//     titulo: 'PHP',
+//     descripcion: 'Programación web del lado del servidor.',
+//     enlace: '/04_php/'
+//   },
+//   {
+//     numero: '6',
+//     icono: 'fa-brands fa-laravel',
+//     titulo: 'Laravel',
+//     descripcion: 'Desarrollo de aplicaciones web completas.',
+//     enlace: '/construccion'
+//   }
+// ]
+
 const contenidos = [
   {
-    numero: '1',
+    numero: 1,
+    titulo: 'Presentación del módulo',
+    descripcion: 'Objetivos, metodología, evaluación y organización del curso.',
     icono: 'fa-solid fa-graduation-cap',
-    titulo: 'Presentación y motivación',
-    descripcion: 'Objetivos, metodología y organización del curso.',
-    enlace: '/000_Presentacion/'
+    enlace: '/presentacion/'
   },
   {
-    numero: '2',
+    numero: 2,
+    titulo: 'Fundamentos de la web y las redes',
+    descripcion: 'Internet, redes, modelo OSI, TCP/IP, DNS, HTTP y WWW.',
     icono: 'fa-solid fa-globe',
-    titulo: 'La web y las redes',
-    descripcion: 'Internet, redes y funcionamiento de la web.',
-    enlace: '/02_entornos_herramientas/'
+    enlace: '/fundamentos-web/'
   },
   {
-    numero: '3',
+    numero: 3,
+    titulo: 'Conceptos y arquitectura web',
+    descripcion: 'Cliente-servidor, frontend, backend y arquitectura de aplicaciones web.',
+    icono: 'fa-solid fa-sitemap',
+    enlace: '/arquitectura-web/'
+  },
+  {
+    numero: 4,
+    titulo: 'Herramientas y entorno de desarrollo',
+    descripcion: 'Linux, terminal, Git, inteligencia artificial y herramientas de desarrollo.',
+    icono: 'fa-solid fa-screwdriver-wrench',
+    enlace: '/entornos-herramientas/'
+  },
+  {
+    numero: 5,
+    titulo: 'Instalación y configuración',
+    descripcion: 'PHP, Apache, servidores virtuales y configuración del entorno.',
+    icono: 'fa-solid fa-gears',
+    enlace: '/instalaciones/'
+  },
+  {
+    numero: 6,
+    titulo: 'Docker y contenedores',
+    descripcion: 'Imágenes, contenedores, Dockerfile y Docker Compose.',
     icono: 'fa-brands fa-docker',
-    titulo: 'Docker',
-    descripcion: 'Imágenes y contenedores. Dockerfile y Docker Compose.',
-    enlace: '/02_docker/'
+    enlace: '/docker/'
   },
   {
-    numero: '4',
-    icono: 'fa-solid fa-laptop-code',
+    numero: 7,
     titulo: 'Introducción a la programación web',
-    descripcion: 'Algoritmos, datos y fundamentos de programación.',
-    enlace: '/01_Conceptos_generales/'
+    descripcion: 'Algoritmos, variables, estructuras de control y funciones.',
+    icono: 'fa-solid fa-code',
+    enlace: '/programacion/'
   },
   {
-    numero: '5',
+    numero: 8,
+    titulo: 'Programación web con PHP',
+    descripcion: 'PHP, formularios, sesiones, orientación a objetos y bases de datos.',
     icono: 'fa-brands fa-php',
-    titulo: 'PHP',
-    descripcion: 'Programación web del lado del servidor.',
-    enlace: '/04_php/'
+    enlace: '/php/'
   },
   {
-    numero: '6',
+    numero: 9,
+    titulo: 'Desarrollo de aplicaciones con Laravel',
+    descripcion: 'MVC, rutas, controladores, Eloquent y aplicaciones web completas.',
     icono: 'fa-brands fa-laravel',
-    titulo: 'Laravel',
-    descripcion: 'Desarrollo de aplicaciones web completas.',
-    enlace: '/construccion'
+    enlace: '/laravel/'
   }
 ]
+
 </script>
 
 <template>
@@ -83,15 +150,13 @@ const contenidos = [
 <style scoped>
 .indice-curso {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 20px;
 
   width: 100%;
-  max-width: 1100px;
-  margin: 24px auto 40px;
-  padding: 12px;
-}
 
+
+}
 .curso-tarjeta {
   display: flex;
   flex-direction: column;

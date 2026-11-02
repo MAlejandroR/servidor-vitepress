@@ -1,9 +1,5 @@
 ---
 title: Contenidos del curso
-sidebar: false
-aside: false
-outline: false
-pageClass: pagina-contenidos
 ---
 
 
@@ -13,3 +9,4 @@ pageClass: pagina-contenidos
 - Montar el entorno con Docker y no perder el trabajo con Git
 - Desarrollar aplicaciones profesionales usando Laravel como framework
   :::
+<ObjetivosModulo />

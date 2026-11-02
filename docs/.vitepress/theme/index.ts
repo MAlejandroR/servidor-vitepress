@@ -13,12 +13,13 @@ import './styles/sumary.css'
 import './styles/table.css'
 import './styles/title.css'
 import './styles/hero.css'
+import './styles/sidebar.css'
 
 
 import Layout from './Layout.vue'
 import '@fortawesome/fontawesome-free/css/all.min.css'
 
-import DropDown from  './components/DropDown.vue'
+import DropDown from './components/DropDown.vue'
 import Color from './components/Color.vue'
 import CardPane from './components/CardPane.vue'
 import Card from './components/Card.vue'

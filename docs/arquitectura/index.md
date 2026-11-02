@@ -6,7 +6,7 @@
 
 ## 1. Criterios de diseño
 
-- **Container Markdown-it** para bloques didácticos de contenido Markdown con título, icono y cuerpo.
+- **Container Markdown-it** para bloques didácticos de contenido Markdown con título, utils y cuerpo.
 - **Componente Vue** para interactividad, estado, ejecución de código o presentaciones reutilizables cuya implementación lo justifique.
 - Un solo registro por nombre de container.
 - Un archivo de definición por container, con una función común de creación.
@@ -76,12 +76,12 @@ PHP se ejecuta en el servidor.
 :::
 ````
 
-La sintaxis con `|` indica título e icono opcional. El formato concreto de `objetivos` debe conservar su título interior.
+La sintaxis con `|` indica título e utils opcional. El formato concreto de `objetivos` debe conservar su título interior.
 
 ## 4. Reglas para los containers
 
 1. Cada container se registra **una sola vez** desde `markdowns/index.ts`.
-2. La lógica de lectura de título, icono y escape HTML se centraliza en `crearContainer.ts`.
+2. La lógica de lectura de título, utils y escape HTML se centraliza en `crearContainer.ts`.
 3. Las particularidades visuales se expresan mediante clases CSS; `objetivos` puede requerir una variante de plantilla.
 4. Se usa `md.utils.escapeHtml()` para los valores que se incorporan como texto o atributos.
 5. Los nombres de las clases existentes (`daws-objetivos`, `daws-pageinfo`, etc.) se preservan hasta migrar el CSS.
@@ -131,7 +131,7 @@ Paleta provisional aprobada para estudiar y ajustar sobre las páginas reales:
 
 - Azul: identidad, navegación, enlaces y botones principales.
 - Verde: objetivos, aprendizaje y ejecución de código.
-- Ámbar: información destacada, actividades y advertencias diferenciadas por icono/título.
+- Ámbar: información destacada, actividades y advertencias diferenciadas por utils/título.
 - Rojo: errores y acciones destructivas, no navegación ordinaria.
 - `pageinfo`: mantener su estructura actual y valorar el ámbar oscuro.
 - Definir variables en `theme/css/colores.css` y consumirlas desde los estilos existentes.

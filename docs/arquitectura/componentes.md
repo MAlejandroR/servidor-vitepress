@@ -21,21 +21,21 @@ Los **componentes Vue** permiten incorporar elementos visuales especializados, r
 
 | Componente | Finalidad |
 |---|---|
-| `PhpRunner` | Ejecutar código PHP |
-| `Ejercicio` | Incorporar ejercicios independientes |
-| `Color` | Destacar fragmentos de texto |
-| `Cmd` | Documentar comandos |
-| `CmdPane` | Agrupar comandos |
-| `Card` | Mostrar tarjetas |
-| `CardPane` | Agrupar tarjetas |
-| `DropDown` | Mostrar u ocultar contenido |
-| `Quiz` | Incorporar preguntas interactivas |
-| `ButtonSlides` | Enlazar presentaciones |
-| `EnConstruccion` | Señalar contenido pendiente |
-| `RequestJourney` | Visualizar una petición web |
-| `ObjetivosModulo` | Objetivos generales del módulo |
-| `StackOficial` | Presentar tecnologías oficiales |
-| `IndiceCurso` | Mostrar el índice del curso |
+| [`PhpRunner`](#phprunner) | Ejecutar código PHP |
+| [`Ejercicio`](#ejercicio) | Incorporar ejercicios independientes |
+| [`Color`](#color) | Destacar fragmentos de texto |
+| [`Cmd`](#cmd-y-cmdpane) | Documentar comandos |
+| [`CmdPane`](#cmd-y-cmdpane) | Agrupar comandos |
+| [`Card`](#card-y-cardpane) | Mostrar tarjetas |
+| [`CardPane`](#card-y-cardpane) | Agrupar tarjetas |
+| [`DropDown`](#dropdown) | Mostrar u ocultar contenido |
+| [`Quiz`](#quiz) | Incorporar preguntas interactivas |
+| [`ButtonSlides`](#buttonslides) | Enlazar presentaciones |
+| [`EnConstruccion`](#enconstruccion) | Señalar contenido pendiente |
+| [`RequestJourney`](#requestjourney) | Visualizar una petición web |
+| [`ObjetivosModulo`](#objetivosmodulo) | Objetivos generales del módulo |
+| [`StackOficial`](#stackoficial) | Presentar tecnologías oficiales |
+| [`IndiceCurso`](#indicecurso) | Mostrar el índice del curso |
 
 ---
 
@@ -481,12 +481,26 @@ La ruta del ejemplo debe sustituirse por una presentación existente.
 
 ## Card y CardPane
 
-Permiten presentar información mediante tarjetas.
+Permiten presentar información mediante tarjetas. `Card` representa una tarjeta y `CardPane` organiza varias tarjetas.
 
-- `Card` representa una tarjeta.
-- `CardPane` organiza varias tarjetas.
+### Propiedades de Card
 
-### Ejemplo
+| Propiedad | Tipo | Obligatoria | Descripción |
+|---|---|---|---|
+| `header` | string | No | Título original de la tarjeta (se conserva por compatibilidad). |
+| `title` | string | No | Nuevo nombre alternativo del título; si se indican ambos, prevalece `title`. |
+| `icon` | string | No | Clases de un icono Font Awesome, por ejemplo `fa-solid fa-network-wired`. |
+| `link` | string | No | Ruta interna de VitePress, respetando la configuración `base`. Abre en la misma pestaña. |
+| `href` | string | No | Enlace original. Abre en una pestaña nueva si no se indica `link`. |
+| `color` | string | No | Color del borde, sombra y título. Por defecto `#4f46e5`. |
+| `src` | string | No | URL de una imagen mostrada dentro de la tarjeta. |
+| `alt` | string | No | Texto alternativo de la imagen. Por defecto utiliza el título. |
+
+::: tip Compatibilidad
+El uso anterior con `header`, `href`, `src`, `alt` y `color` sigue funcionando. Las propiedades nuevas son opcionales. Si se indican `link` y `href`, prevalece `link`.
+:::
+
+### Ejemplo original: tarjetas de contenido
 
 ~~~md
 <CardPane>
@@ -535,6 +549,108 @@ Significado de las instrucciones.
 </Card>
 
 </CardPane>
+
+### Nuevo uso: título, icono y enlace interno
+
+El atributo `link` utiliza la URL pública definida por los `rewrites` de VitePress.
+
+~~~md
+<CardPane>
+
+<Card
+  title="Redes"
+  icon="fa-solid fa-network-wired"
+  link="/fundamentos/redes/"
+  color="#2563eb"
+>
+
+Equipos, direcciones IP y comunicación.
+
+</Card>
+
+<Card
+  title="HTTP y HTTPS"
+  icon="fa-solid fa-arrow-right-arrow-left"
+  link="/fundamentos/http/"
+  color="#16a34a"
+>
+
+Peticiones, respuestas y comunicación segura.
+
+</Card>
+
+</CardPane>
+~~~
+
+### Resultado
+
+<CardPane>
+
+<Card
+title="Redes"
+icon="fa-solid fa-network-wired"
+link="/fundamentos/redes/"
+color="#2563eb"
+>
+
+Equipos, direcciones IP y comunicación.
+
+</Card>
+
+<Card
+title="HTTP y HTTPS"
+icon="fa-solid fa-arrow-right-arrow-left"
+link="/fundamentos/http/"
+color="#16a34a"
+>
+
+Peticiones, respuestas y comunicación segura.
+
+</Card>
+
+</CardPane>
+
+### Enlace externo con `href` (comportamiento original)
+
+~~~md
+<Card
+  header="Documentación de PHP"
+  icon="fa-brands fa-php"
+  href="https://www.php.net/manual/es/"
+>
+
+Consultar el manual oficial de PHP.
+
+</Card>
+~~~
+
+### Resultado
+
+<Card
+header="Documentación de PHP"
+icon="fa-brands fa-php"
+href="https://www.php.net/manual/es/"
+>
+
+Consultar el manual oficial de PHP.
+
+</Card>
+
+### Tarjeta con imagen (comportamiento original)
+
+~~~md
+<Card
+  header="PHP"
+  src="/images/php.png"
+  alt="Logotipo de PHP"
+>
+
+Lenguaje de programación del lado del servidor.
+
+</Card>
+~~~
+
+La ruta de `src` es ilustrativa: utiliza una imagen que exista en tu proyecto.
 
 ---
 

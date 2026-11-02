@@ -18,9 +18,9 @@ title: Motivación
 - Tener claro que a programar se aprende programando
 :::
 
-## Qué vamos a ver en este curso
+# Qué vamos a ver en este curso
 
-### Situación de la que partimos
+## Situación de la que partimos
 
 El profesor va a partir dando por supuesto lo siguiente.
 
@@ -31,7 +31,7 @@ El profesor va a partir dando por supuesto lo siguiente.
 - Creo que me gusta mucho el desarrollo web
 :::
 
-### Y ahora qué
+## Y ahora qué
 
 ::: objetivos Qué cambiará
 Vamos a seguir programando, pero con algunos cambios.
@@ -78,7 +78,7 @@ También cambia el entorno en el que **desarrollamos** las aplicaciones: editor,
 **Muy importante:** entender lo que se hace.
 :::
 
-### Aspectos a reflexionar
+## Aspectos a reflexionar
 
 ::: pregunta Aspectos a reflexionar
 Antes de entrar en PHP, unas cuantas cosas que conviene tener dichas.
@@ -93,13 +93,14 @@ Lo que sí que me ha demostrado la experiencia es que:
 ::: actividad Fundamental
 <Color>A PROGRAMAR SE APRENDE PROGRAMANDO.</Color>
 
-No es algo que se estudie: se practica.
-:::
+<br />
+* <Color>No es algo que se estudie: se practica.</Color>.
 
 - No hay prisa y el avance está asegurado si en el camino damos **pasos seguros**
 - No debe haber pausa para llegar a alcanzar nuestro objetivo
 - Ver todo el temario **no es el objetivo principal**
-
+:::
+ 
 ::: pageinfo
 Este temario está pensado para que las empresas os abran las puertas cuando lleguéis a ellas.
 

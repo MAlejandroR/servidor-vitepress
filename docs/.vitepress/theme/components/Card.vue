@@ -1,9 +1,11 @@
+
 <script setup lang="ts">
-defineProps({
-  header: {
-    type: String,
-    required: true,
-  },
+import { computed } from 'vue'
+import { withBase } from 'vitepress'
+
+const props = defineProps({
+  // Propiedades originales
+  header: String,
   href: String,
   src: String,
   alt: String,
@@ -11,22 +13,37 @@ defineProps({
     type: String,
     default: '#4f46e5',
   },
+
+  // Nuevas propiedades
+  title: String,
+  icon: String,
+  link: String,
 })
+
+const titulo = computed(() => props.title ?? props.header ?? '')
+
+const destino = computed(() =>
+    props.link ? withBase(props.link) : props.href
+)
 </script>
 
 <template>
   <component
-    :is="href ? 'a' : 'div'"
-    class="daws-card"
-    :href="href"
-    :target="href ? '_blank' : undefined"
-    :rel="href ? 'noreferrer' : undefined"
-    :style="{ '--c': color }"
+      :is="destino ? 'a' : 'div'"
+      class="daws-card"
+      :href="destino"
+      :target="href && !link ? '_blank' : undefined"
+      :rel="href && !link ? 'noreferrer' : undefined"
+      :style="{ '--c': color }"
   >
-    <span class="daws-card__title">{{ header }}</span>
+    <span class="daws-card__title">
+      <i v-if="icon" :class="icon" aria-hidden="true"></i>
+      <span>{{ titulo }}</span>
+    </span>
+
     <div class="daws-card__body">
       <slot />
-      <img v-if="src" :src="src" :alt="alt || header" />
+      <img v-if="src" :src="src" :alt="alt || titulo" />
     </div>
   </component>
 </template>
@@ -52,9 +69,18 @@ a.daws-card:hover {
 }
 
 .daws-card__title {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
   font-size: 1.15rem;
   font-weight: 800;
   color: var(--c);
+}
+
+.daws-card__title i {
+  display: inline-block;
+  flex-shrink: 0;
+  font-size: 1.1em;
 }
 
 .daws-card__body {

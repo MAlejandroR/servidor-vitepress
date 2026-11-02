@@ -117,14 +117,14 @@ Los colores se definen en `styles/colors.css`.
 
 | Container | Estructura HTML | Personalización |
 |---|---|---|
-| `objetivos` | Cabecera + título interior + cuerpo | Título e icono |
+| `objetivos` | Cabecera + título interior + cuerpo | Título e utils |
 | `finalidad` | Etiqueta + subtítulo + cuerpo | Subtítulo |
 | `previo` | Etiqueta + subtítulo + cuerpo | Subtítulo |
-| `definicion` | Cabecera + cuerpo | Título e icono |
-| `pageinfo` | Cabecera + cuerpo | Título e icono |
-| `recuerda` | Cabecera + cuerpo | Título e icono |
+| `definicion` | Cabecera + cuerpo | Título e utils |
+| `pageinfo` | Cabecera + cuerpo | Título e utils |
+| `recuerda` | Cabecera + cuerpo | Título e utils |
 | `actividad` | Etiqueta + subtítulo + cuerpo | Subtítulo |
-| `practica` | Cabecera + cuerpo | Título e icono |
+| `practica` | Cabecera + cuerpo | Título e utils |
 | `pregunta` | Etiqueta + subtítulo + cuerpo | Subtítulo |
 | `referencias` | Etiqueta + subtítulo + cuerpo | Subtítulo |
 

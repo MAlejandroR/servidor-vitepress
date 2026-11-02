@@ -4,15 +4,18 @@ title: Presentación del curso
 
 
 
-## Cómo miramos el módulo
+:::objetivos El módulo DAWS
 
 - Ver y comprender los principios básicos teóricos
 - Adaptarnos a las tecnologías actuales
 - Desarrollar la capacidad de **aprender a aprender**
 - Desmitificar que una tecnología nueva es “empezar de cero”
 - La mejor tecnología es la que resuelve el problema **y** con la que te sientes cómoda
+:::
 
-::: pageinfo
+# El ciclo de Desarrollo Web y este módulo de desarrollo en el servidor
+
+::: pageinfo Una parte de un todo | fa-solid fa-puzzle-piece
 Este ciclo consta de diferentes partes muy interrelacionadas
 En realidad cada una es parte de un todo
 - *(Cliente)* Programación web en el entorno **cliente**: 180 h
@@ -21,15 +24,16 @@ En realidad cada una es parte de un todo
 - *(Sistemas/Servicios/Redes)* Despliege de aplicaciones web: 90 h
 :::
 
-::: warning Desarrollar una aplicación web
+::: recuerda Desarrollar una aplicación web implica: | fa-solid fa-laptop-code
 - Desarrollar una aplicación: **saber programar**
-- Una aplicación **web**
+- Una aplicación **web**, no es una aplicacion de escritorio, y esto tiene implicaciones. 
 - **Desplegarla** en un **servidor**
 :::
 
-## Un proyecto común
+# Un proyecto común
 
 ![Grupo de trabajo](./images/grupo.jpg)
+
 
 *Todos con el mismo objetivo*
 

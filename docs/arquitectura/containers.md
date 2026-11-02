@@ -17,13 +17,13 @@
 
 - **`objetivos`** muestra una cabecera fija «Objetivos» y un título interior personalizable.
 - **`finalidad`, `previo`, `actividad`, `pregunta` y `referencias`** utilizan el diseño `labeledBox`, con etiqueta fija y subtítulo personalizable. Actualmente no muestran iconos, aunque estén configurados en sus archivos `.ts`.
-- **`definicion`, `pageinfo`, `recuerda` y `practica`** muestran una cabecera con icono y título personalizable.
+- **`definicion`, `pageinfo`, `recuerda` y `practica`** muestran una cabecera con utils y título personalizable.
 
 ### Ejemplos de uso
 
 ::: objetivos Aprender a trabajar con arrays
 
-<small>Sintaxis: <code>::: objetivos [título] | [icono]</code></small>
+<small>Sintaxis: <code>::: objetivos [título] | [utils]</code></small>
 
 - Crear arrays.
 - Recorrer sus elementos.
@@ -48,7 +48,7 @@ y las estructuras de control de PHP.
 
 ::: definicion Array | fa-solid fa-layer-group
 
-<small>Sintaxis: <code>::: definicion [título] | [icono]</code></small>
+<small>Sintaxis: <code>::: definicion [título] | [utils]</code></small>
 
 Un array es una estructura de datos que permite almacenar
 varios valores bajo un mismo identificador.
@@ -56,7 +56,7 @@ varios valores bajo un mismo identificador.
 
 ::: pageinfo Arrays asociativos | fa-solid fa-circle-info
 
-<small>Sintaxis: <code>::: pageinfo [título] | [icono]</code></small>
+<small>Sintaxis: <code>::: pageinfo [título] | [utils]</code></small>
 
 En PHP, los arrays pueden utilizar claves numéricas o cadenas
 de texto para identificar sus elementos.
@@ -64,7 +64,7 @@ de texto para identificar sus elementos.
 
 ::: recuerda Las claves de un array | fa-solid fa-lightbulb
 
-<small>Sintaxis: <code>::: recuerda [título] | [icono]</code></small>
+<small>Sintaxis: <code>::: recuerda [título] | [utils]</code></small>
 
 Las claves de un array deben ser enteros o cadenas de texto.
 PHP puede convertir automáticamente otros tipos de claves.
@@ -84,7 +84,7 @@ echo array_sum($numeros);
 
 ::: practica Recorre un array | fa-solid fa-keyboard
 
-<small>Sintaxis: <code>::: practica [título] | [icono]</code></small>
+<small>Sintaxis: <code>::: practica [título] | [utils]</code></small>
 
 Escribe un programa PHP que recorra un array de productos
 utilizando `foreach` y muestre el nombre de cada producto.

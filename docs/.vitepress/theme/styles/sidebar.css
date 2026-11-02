@@ -1,0 +1,246 @@
+
+/* ============================================================
+   SIDEBAR PERSONALIZADO - VITEPRESS
+   ============================================================
+
+   VARIABLES DE CONFIGURACIÓN
+
+   TIPOGRAFÍA
+   --sidebar-font                Fuente de los elementos secundarios
+   --sidebar-title-size          Tamaño del título principal (20px)
+   --sidebar-item-size           Tamaño de los elementos secundarios (18px)
+   --sidebar-icon-size           Tamaño de los iconos secundarios (13px)
+
+   COLORES
+   --sidebar-text                Color del texto normal (#60656b)
+   --sidebar-icon                Color de los iconos (#666b70)
+   --sidebar-hover               Color al pasar el cursor (#2563eb)
+
+   ELEMENTO ACTIVO
+   --sidebar-active-bg           Fondo azul del texto activo (#a9cbee)
+   --sidebar-active-text         Color del texto activo (#526f88)
+
+   LÍNEA SEPARADORA
+   --sidebar-line-start          Color inicial del degradado (#2b587e)
+   --sidebar-line-middle         Color intermedio (#7399b8)
+   --sidebar-line-end            Color final (#c4d6e5)
+
+   ESPACIADO
+   --sidebar-padding             Margen lateral del sidebar (12px)
+   --sidebar-indent              Sangría de los elementos secundarios (40px)
+   --sidebar-item-gap            Separación entre icono y texto (6px)
+   --sidebar-item-line-height    Altura de línea de los elementos (1.15)
+   --sidebar-title-margin        Espacio debajo de la línea (15px)
+
+   NOTAS
+   - Modificar las variables en :root para personalizar el diseño.
+   - Los enlaces aprovechan el ancho disponible del sidebar.
+   - El elemento activo resalta solo el texto, no toda la fila.
+   - La línea del título utiliza un degradado azul permanente.
+
+   ============================================================ */
+
+
+/* ============================================================
+   SIDEBAR PERSONALIZADO - VITEPRESS
+   ============================================================ */
+
+/* ===== 1. FUENTES ===== */
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap');
+
+
+/* ===== 2. VARIABLES DE CONFIGURACIÓN ===== */
+
+:root {
+    /* Tipografía */
+    --sidebar-font: 'Source Sans 3', sans-serif;
+    --sidebar-title-size: 20px;
+    --sidebar-item-size: 18px;
+    --sidebar-icon-size: 13px;
+
+    /* Colores */
+    --sidebar-text: #60656b;
+    --sidebar-icon: #666b70;
+    --sidebar-hover: #2563eb;
+
+    /* Elemento activo */
+    --sidebar-active-bg: #a9cbee;
+    --sidebar-active-text: #526f88;
+    --sidebar-active-text-item-size: 19px;
+    --sidebar-active-text-icon-size: 14px;
+
+    /* Línea separadora */
+    --sidebar-line-start: #2b587e;
+    --sidebar-line-middle: #7399b8;
+    --sidebar-line-end: #c4d6e5;
+
+    /* Espaciado */
+    --sidebar-padding: 12px;
+    --sidebar-indent: 40px;
+    --sidebar-item-gap: 6px;
+    --sidebar-item-line-height: 1.15;
+    --sidebar-title-margin: 15px;
+}
+
+
+/* ===== 3. SIDEBAR GENERAL ===== */
+
+/*
+ * Reducimos los márgenes laterales que VitePress aplica
+ * al sidebar para aprovechar mejor el espacio disponible.
+ */
+@media (min-width: 960px) {
+
+    .VPSidebar {
+        padding-left: var(--sidebar-padding) !important;
+        padding-right: var(--sidebar-padding) !important;
+    }
+
+    /* Evitamos restricciones de anchura en los contenedores */
+    .VPSidebar .nav,
+    .VPSidebar .group {
+        width: 100%;
+        max-width: none;
+    }
+}
+
+
+/* ===== 4. TÍTULO PRINCIPAL ===== */
+
+/*
+ * Cabecera de cada sección:
+ * PHP, FUNDAMENTOS WEB, PRESENTACIÓN, etc.
+ *
+ * Incluye una línea inferior con degradado azul.
+ */
+.VPSidebarItem.level-0 > .item {
+    padding: 8px 0;
+    margin-bottom: var(--sidebar-title-margin);
+
+    border-bottom: 2px solid transparent;
+    border-image: linear-gradient(
+            to right,
+            var(--sidebar-line-start) 0%,
+            var(--sidebar-line-middle) 55%,
+            var(--sidebar-line-end) 100%
+    ) 1;
+}
+
+/* Texto del título principal */
+.VPSidebarItem.level-0 > .item .sidebar-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    font-size: var(--sidebar-title-size);
+    font-weight: 700;
+}
+
+/* Icono del título principal */
+.VPSidebarItem.level-0 > .item .sidebar-title i {
+    flex: 0 0 22px;
+    text-align: center;
+    font-size: var(--sidebar-title-size);
+}
+
+/* Hover sobre el título principal */
+.VPSidebarItem.level-0 > .item:hover .sidebar-title {
+    color: var(--sidebar-hover);
+}
+
+
+/* ===== 5. ELEMENTOS SECUNDARIOS ===== */
+
+/*
+ * Sangría respecto al título principal.
+ * Reducir este valor permite mostrar textos más largos.
+ */
+.VPSidebarItem.level-0 > .items {
+    padding-left: var(--sidebar-indent);
+}
+
+/* Filas compactas, sin padding vertical adicional */
+.VPSidebarItem.level-1 > .item {
+    padding: 0;
+}
+
+/* Los enlaces aprovechan el ancho disponible */
+.VPSidebarItem.level-1 > .item > .VPLink {
+    width: 100%;
+    max-width: none;
+}
+
+/* Texto e iconos de cada elemento */
+.VPSidebarItem.level-1 .sidebar-title {
+    display: flex;
+    align-items: center;
+    gap: var(--sidebar-item-gap);
+    width: 100%;
+
+    font-family: var(--sidebar-font);
+    font-size: var(--sidebar-item-size);
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: var(--sidebar-item-line-height);
+
+    color: var(--sidebar-text);
+}
+
+/* Iconos secundarios */
+.VPSidebarItem.level-1 .sidebar-title i {
+    flex: 0 0 16px;
+    text-align: center;
+    font-size: var(--sidebar-icon-size);
+    color: var(--sidebar-icon);
+}
+
+/* Texto secundario */
+.VPSidebarItem.level-1 .sidebar-title > span {
+    min-width: 0;
+    font-weight: 400;
+}
+
+
+/* ===== 6. HOVER DE ELEMENTOS SECUNDARIOS ===== */
+
+/*
+ * Cambia el texto y el icono a azul
+ * al pasar el cursor sobre el elemento.
+ */
+.VPSidebarItem.level-1 > .item:hover .sidebar-title{
+    color: var(--sidebar-hover);
+    font-size: var(--sidebar-active-text-item-size);
+}
+.VPSidebarItem.level-1 > .item:hover .sidebar-title i {
+    color: var(--sidebar-hover);
+    font-size: var(--sidebar-active-text-icon-size);
+}
+
+
+/* ===== 7. ELEMENTO ACTIVO ===== */
+
+/*
+ * El fondo azul se aplica únicamente al texto,
+ * no a toda la fila ni al icono.
+ */
+
+/* Evitar fondo en el enlace completo */
+.VPSidebarItem.level-1 .VPLink.active {
+    background: transparent;
+}
+
+/* Texto activo */
+.VPSidebarItem.level-1 .VPLink.active .sidebar-title > span {
+    background-color: var(--sidebar-active-bg);
+    color: var(--sidebar-active-text);
+    font-weight: 700;
+
+    padding: 1px 3px;
+    border-radius: 1px;
+}
+
+/* Icono activo: permanece gris */
+.VPSidebarItem.level-1 .VPLink.active .sidebar-title i {
+    color: var(--sidebar-icon);
+}

@@ -184,3 +184,15 @@ html { overflow-anchor: none; }
 .VPDoc .content {
   padding-bottom: 0;
 }
+
+/* Solo para la página de contenidos */
+/* Ampliar únicamente la página de contenidos */
+
+.Layout.pagina-contenidos .VPDoc .container {
+  max-width: 1600px !important;
+}
+
+.Layout.pagina-contenidos .indice-contenedor {
+  max-width: none ;
+  width: 100% ;
+}
