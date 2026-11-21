@@ -3,7 +3,7 @@ title: Práctica de la semana
 ---
 
 ::: actividad Ruta mínima
-Hazlo en orden. Si uno falla, no pases al siguiente: mira [comandos](../04_comandos/index.md) y los logs.
+Hazlo en orden. Si uno falla, no pases al siguiente: mira [comandos](/docker/comandos/) y los logs.
 :::
 
 ## 1. El motor responde
@@ -14,7 +14,7 @@ docker compose version
 docker run --rm hello-world
 ```
 
-Si `permission denied` en Linux: grupo `docker` y sesión nueva ([instalación](../04_comandos/index.md).
+Si `permission denied` en Linux: grupo `docker` y sesión nueva ([instalación](/docker/instalaciones/)).
 
 ## 2. Un Linux de usar y tirar
 
@@ -22,7 +22,7 @@ Si `permission denied` en Linux: grupo `docker` y sesión nueva ([instalación](
 docker run --rm -it ubuntu:24.04 bash
 ```
 
-Dentro: `pwd`, `ls`, `whoami`. Sales con `exit`. Ese contenedor desaparece (`--rm`). Es la misma idea que la [chuleta Linux](../../04_entornos_herramientas/01_linux/index.md), pero aislada.
+Dentro: `pwd`, `ls`, `whoami`. Sales con `exit`. Ese contenedor desaparece (`--rm`). Es la misma idea que la [chuleta Linux](/entornos/linux/), pero aislada.
 
 ## 3. PHP a pelo (sin Compose)
 
@@ -46,7 +46,7 @@ docker stop web && docker rm web
 
 ## 4. El laboratorio escrito
 
-Copia (o escribe) el `Dockerfile` y el `compose` de [Instalaciones](../03_instalaciones/index.md) / [Compose](../06_compose/index.md). Desde la carpeta del compose:
+Copia (o escribe) el `Dockerfile` y el `compose` de [Instalaciones](/docker/instalaciones/) / [Compose](/docker/compose/). Desde la carpeta del compose:
 
 ```bash
 docker compose up -d --build

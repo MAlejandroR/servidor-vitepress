@@ -1,8 +1,8 @@
 import type MarkdownIt from 'markdown-it'
-import { crearContainer } from '../crearContainer'
+import { old_crearContainer } from '../old_crearContainer'
 
 export function registrarPractica(md: MarkdownIt) {
-    crearContainer(md, {
+    old_crearContainer(md, {
         nombre: 'practica',
         titulo: 'Ahora practica tú',
         icono: 'fa-solid fa-keyboard'

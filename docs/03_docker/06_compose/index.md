@@ -193,6 +193,6 @@ Eso llega con persistencia y formularios. El día uno del laboratorio basta el s
 1. `docker compose ps` — ¿está `Up` o `Exit`?
 2. `docker compose logs -f` — el error suele estar al final
 3. Puerto 8800 ocupado: cambia el izquierdo (`8801:80`) o cierra lo que lo usa
-4. Permiso denegado al socket: [instalación](../03_instalaciones/index.md) (grupo `docker`)
+4. Permiso denegado al socket: [instalación](/docker/instalaciones/) (grupo `docker`)
    :::
 

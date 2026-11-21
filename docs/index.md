@@ -11,7 +11,7 @@ hero:
       link: /000_Presentacion/01_presentacion
     - theme: brand
       text: 📖 Accede a los contenidos
-      link: /0_contenidos
+      link: /contenido
     - theme: alt
       text: Cómo viaja una petición
       link: '#viaje'

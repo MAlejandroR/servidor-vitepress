@@ -4,8 +4,11 @@
 
 
 const archivos = import.meta.glob(
-    '../../../../**/ejercicios/*.md',
-    {eager: true}
+    [
+        '../../../../**/ejercicios/**/index.md',
+        '../../../../**/16_ejercicios/*/ejercicio*/index.md'
+    ],
+    { eager: true }
 )
 
 console.log('Archivos encontrados:', Object.keys(archivos));
@@ -15,6 +18,13 @@ console.log('Primer módulo:', Object.values(archivos)[0]);
 
 //Vamos a crear un mapa (array asociativo) donde la clave sea el nombre del ejercicio y el valor sea el contenido del archivo
 const ejercicios = new Map();
+console.table(
+    [...ejercicios.values()].map(e => ({
+        id: e.id,
+        solucion: e.solucion,
+        mostrarCodigo: e.mostrarCodigo
+    }))
+);
 
 for (const [ruta, modulo] of Object.entries(archivos)) {
 
@@ -25,22 +35,24 @@ for (const [ruta, modulo] of Object.entries(archivos)) {
         throw new Error(`El archivo ${ruta} no tiene un id definido en el frontmatter`);
     if (ejercicios.has(id))
         throw new Error(`El archivo ${ruta} tiene un id duplicado: ${id}`);
-    ejercicios.set(id,
-        {
-            id,
-            titulo,
-            tema,
-            orden,
-            ruta,
-            icon: datos.frontmatter.icon || 'fa-solid fa-code',
-            url: datos.relativePath,
-            componente: modulo.default
+    ejercicios.set(id, {
+        id,
+        titulo,
+        tema,
+        orden,
+        ruta,
+        icon: datos.frontmatter.icon || 'fa-solid fa-code',
+        url: datos.relativePath,
+        componente: modulo.default,
+        solucion: datos.frontmatter.solucion ?? null,
+        mostrarCodigo: datos.frontmatter.mostrar_codigo ?? false
 
-        });
+    });
 }
 
 console.log('Catálogo de ejercicios:', ejercicios);
 console.log('Número de ejercicios:', ejercicios.size);
+
 
 //Obtener un ejercicio concreto por su id
 export function obtenerEjercicio(id) {

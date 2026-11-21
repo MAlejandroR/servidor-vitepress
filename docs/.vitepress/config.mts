@@ -4,14 +4,15 @@ import {fetchVisitCount, goatCounter} from './site'
 import {dawsContainers} from './markdows'
 import footnote from 'markdown-it-footnote';
 import {fileURLToPath, URL} from 'node:url'
-import {sidebar} from "./nav/index.ts";
-import {rewrites}    from "./rewrites/index.ts";
+import {sidebar} from "./config/nav/index";
+import {rewrites}    from "./config/rewrites/index";
 
 
 const dawsVisitCount = await fetchVisitCount()
 
 export default withMermaid(
     defineConfig({
+
         lang: 'es',
         title: 'DAWS',
         description:
@@ -24,8 +25,9 @@ export default withMermaid(
                 // alias para establecer el dir de los apuntes (en docs)
                 alias: {
                     '@apuntes': fileURLToPath(new URL('../', import.meta.url))
-                }
-            }
+                },
+                preserveSymlinks: true,
+            },
         },
 
         markdown: {
@@ -80,8 +82,8 @@ export default withMermaid(
 
             sidebar,
 
-            outline:
-                'deep',
+            // Para quitar el menú de la derecha
+            outline:false,
 
             socialLinks:
                 [

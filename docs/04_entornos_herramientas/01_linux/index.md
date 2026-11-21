@@ -280,7 +280,7 @@ Tres permisos:
 
 En un directorio, `r` y `w` casi siempre van con `x`: sin `x` no entras, y entonces no puedes listar ni crear nada útil.
 
-En este módulo, Apache/PHP suele ejecutarse como `www-data`. Si PHP no puede leer o escribir, el que choca con los permisos es **ese** proceso, no tu usuario de clase. Detalle y tabla octal → [PhpStorm y permisos](/02_entornos_herramientas/instalaciones/phpstorm).
+En este módulo, Apache/PHP suele ejecutarse como `www-data`. Si PHP no puede leer o escribir, el que choca con los permisos es **ese** proceso, no tu usuario de clase. Detalle y tabla octal → [PhpStorm y permisos](/04_entornos_herramientas/04_instalaciones/phpstorm).
 
 <CmdPane>
 <Cmd name="sudo" mne="*s*uper*u*ser *do*" example="sudo nano /etc/hosts">
@@ -467,7 +467,7 @@ Imprime texto o el valor de una **variable**. En Docker y Laravel verás mucho `
 
 ## Con Docker
 
-Estos comandos **no** vienen con Ubuntu: hace falta el motor de Docker (unidad [Docker](../02_docker/index.md)). La idea clave: `docker exec … bash` te deja **dentro** de un Linux; a partir de ahí valen `ls`, `cd`, `chmod`, `tail`…
+Estos comandos **no** vienen con Ubuntu: hace falta el motor de Docker (unidad [Docker](/docker/)). La idea clave: `docker exec … bash` te deja **dentro** de un Linux; a partir de ahí valen `ls`, `cd`, `chmod`, `tail`…
 
 <CmdPane>
 <Cmd name="docker exec" mne="*exec*ute (ejecutar dentro)" example="docker exec -it web bash">
@@ -514,9 +514,9 @@ Activa un virtual host: crea el enlace en `sites-enabled`. El contrario es `a2di
 </CmdPane>
 
 ::: referencias Dónde sigue esto
-- [PhpStorm y permisos](/02_entornos_herramientas/instalaciones/phpstorm) — `chmod`, `chown`, `www-data`
-- [Apache](/02_entornos_herramientas/instalaciones/apache/) y [práctica de virtual hosts](/02_entornos_herramientas/instalaciones/apache/practica/)
-- [Docker](../02_docker/index.md) — imagen, contenedor, volumen, compose
+- [PhpStorm y permisos](/04_entornos_herramientas/04_instalaciones/phpstorm) — `chmod`, `chown`, `www-data`
+- [Apache](/04_entornos_herramientas/04_instalaciones/apache/) y [práctica de virtual hosts](/04_entornos_herramientas/04_instalaciones/apache/practica/)
+- [Docker](/docker/) — imagen, contenedor, volumen, compose
 :::
 
 ## Apache

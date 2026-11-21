@@ -1,11 +1,12 @@
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, useAttrs } from 'vue'
 
 const props = defineProps<{
   title?: string
   password?: string
 }>()
+const attrs = useAttrs();
 
 const dialog = ref<HTMLDialogElement | null>(null)
 const unlocked = ref<boolean>(false)
@@ -48,8 +49,7 @@ function closeDialog() {
 </script>
 
 <template>
-  <details @toggle="handleToggle">
-    <summary>
+  <details :class="attrs.class" @toggle="handleToggle">    <summary>
       <span class="title">
         {{ title || 'Ver contenido' }}
       </span>
@@ -97,7 +97,7 @@ function closeDialog() {
   align-items: center;
   gap: 12px;
 
-  background-color: #e8f1fc;
+  background-color: #d4e6fa;
   border-radius: 8px;
   padding: 6px 12px;
   margin: 0;
@@ -187,5 +187,62 @@ input {
 .error {
   font-size: 0.9rem;
   color: #c00;
+}
+/* ============================================================
+   DROPDOWN - PARA PROFUNDIZAR
+   ============================================================ */
+
+details.ampliacion {
+  margin: 1.5rem 0;
+  padding: 16px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  background: var(--vp-c-bg);
+}
+
+/* Encabezado informativo */
+details.ampliacion::before {
+  content: "📖  Para profundizar";
+  display: block;
+  margin-bottom: 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--vp-c-text-1);
+}
+
+/* Cabecera desplegable */
+details.ampliacion summary {
+  width: 100%;
+}
+
+/* Título */
+details.ampliacion .title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--vp-c-text-3);
+}
+
+/* Flecha */
+details.ampliacion .title::after {
+  content: "";
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  margin: 0 8px 0 16px;
+  border-right: 2px solid var(--vp-c-text-2);
+  border-bottom: 2px solid var(--vp-c-text-2);
+  transform: rotate(-45deg);
+  transition: transform 0.2s;
+}
+
+details.ampliacion[open] .title::after {
+  transform: rotate(45deg);
 }
 </style>

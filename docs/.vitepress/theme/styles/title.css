@@ -1,32 +1,244 @@
-/* Numeracion automatica de titulos */
-.vp-doc { counter-reset: h1; }
-.vp-doc h1 { counter-increment: h1; counter-reset: h2; color: var(--daws-primary); }
-.vp-doc h2 { counter-increment: h2; counter-reset: h3; color: var(--daws-green); }
-.vp-doc h3 { counter-increment: h3; color: var(--daws-heading-3); }
-.vp-doc h4 { color: var(--daws-heading-4); }
-.vp-doc h1::before { content: counter(h1) '. '; }
-.vp-doc h2::before { content: counter(h1) '.' counter(h2) '. '; }
-.vp-doc h3::before { content: counter(h1) '.' counter(h2) '.' counter(h3) '. '; }
 
-/* Cabecera global VitePress */
-.VPNav, .VPNavBar,
-.VPNavBarTitle, .VPNavBarTitle .title,
-.VPNavBar .content, .VPNavBar .content-body {
-  background: var(--daws-header-bg) !important;
+/* ============================================================
+   1. NUMERACIÓN AUTOMÁTICA DE TÍTULOS
+   ============================================================ */
+
+.vp-doc {
+    counter-reset: h1;
 }
-.VPNavBarTitle, .VPNavBarTitle .title,
-.VPNavBarMenuLink, .VPNavBarMenuGroup .text,
-.VPNavBarSearch, .VPNavBarAppearance, .VPNavBarSocialLinks {
-  color: var(--daws-header-text) !important;
+
+.vp-doc h1 {
+    counter-increment: h1;
+    counter-reset: h2;
+    color: var(--daws-primary);
 }
-.VPNavBar .divider, .VPNavBar .divider-line {
-  background: var(--daws-header-bg) !important;
-  border-color: var(--daws-header-bg) !important;
+
+.vp-doc h2 {
+    counter-increment: h2;
+    counter-reset: h3;
+    color: var(--daws-green);
 }
-/* Se conservan los selectores por compatibilidad con posibles botones existentes */
+
+.vp-doc h3 {
+    counter-increment: h3;
+    color: var(--daws-heading-3);
+}
+
+.vp-doc h4 {
+    color: var(--daws-heading-4);
+}
+
+.vp-doc h1::before {
+    content: counter(h1) '. ';
+}
+
+.vp-doc h2::before {
+    content: counter(h1) '.' counter(h2) '. ';
+}
+
+.vp-doc h3::before {
+    content: counter(h1) '.' counter(h2) '.' counter(h3) '. ';
+}
+
+
+/* ============================================================
+   2. CABECERA GLOBAL VITEPRESS
+   ============================================================ */
+
+.VPNav,
+.VPNavBar,
+.VPNavBarTitle,
+.VPNavBarTitle .title,
+.VPNavBar .content,
+.VPNavBar .content-body {
+    background: var(--daws-header-bg) !important;
+}
+
+.VPNavBarTitle,
+.VPNavBarTitle .title,
+.VPNavBarMenuLink,
+.VPNavBarMenuGroup .text,
+.VPNavBarSearch,
+.VPNavBarAppearance,
+.VPNavBarSocialLinks {
+    color: var(--daws-header-text) !important;
+}
+
+.VPNavBar .divider,
+.VPNavBar .divider-line {
+    background: var(--daws-header-bg) !important;
+    border-color: var(--daws-header-bg) !important;
+}
+
+
+/* ============================================================
+   3. BOTONES DE DIAPOSITIVAS Y PDF
+   ============================================================ */
+
 .boton-diapositivas {
-  background: var(--daws-primary-light);
-  color: var(--daws-primary);
-  border: 1px solid var(--daws-primary);
+    background: var(--daws-primary-light);
+    color: var(--daws-primary);
+    border: 1px solid var(--daws-primary);
 }
-.boton-pdf { background: transparent; color: #fff; border: 1px solid #fff; }
+
+.boton-pdf {
+    background: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+}
+
+
+/* ============================================================
+   4. TÍTULOS PLEGABLES H1, H2 Y H3
+   ============================================================ */
+
+.vp-doc :is(h1, h2, h3):has(.heading-toggle) {
+    background: #eaf2fa;
+    border-radius: 8px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.vp-doc :is(h1, h2, h3):has(.heading-toggle):hover {
+    background: #dceafa;
+}
+
+/* Flecha de plegado */
+.vp-doc .heading-toggle {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 0 4px;
+
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1;
+
+    color: var(--daws-primary);
+    background: transparent;
+    border: none;
+
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.vp-doc .heading-toggle:hover {
+    color: #2563eb;
+}
+
+/* Ocultar contenido perteneciente a secciones plegadas */
+.vp-doc [hidden] {
+    display: none !important;
+}
+
+
+/* ============================================================
+   5. CONTROLES GLOBALES DE PLEGADO
+   ============================================================ */
+
+/* Contenedor: explicación + botón */
+.vp-doc .heading-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    padding: 12px 14px;
+    margin: 18px 0 12px;
+
+    background: var(--vp-c-bg-soft);
+    border: 1px solid var(--vp-c-divider);
+    border-radius: 12px;
+}
+
+/* Texto informativo */
+.vp-doc .heading-controls-info {
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--vp-c-text-2);
+}
+
+/* Estilo común: Vista resumida y Expandir todo */
+.vp-doc .heading-toggle-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    margin: 0;
+    padding: 6px 14px;
+
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--vp-c-text-2);
+
+    background: var(--vp-c-bg);
+    border: 1px solid var(--vp-c-divider);
+    border-radius: 999px;
+
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.vp-doc .heading-toggle-all:hover {
+    background: var(--vp-c-bg-alt);
+    color: var(--vp-c-text-1);
+}
+/* Agrupar los dos botones */
+.vp-doc .heading-controls-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* Botones de selección de vista */
+.vp-doc .heading-controls-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* Estado activo: discreto */
+.vp-doc .heading-toggle-all.is-active {
+    background: var(--daws-primary-light);
+    border-color: var(--daws-primary);
+    color: var(--daws-primary);
+    font-weight: 600;
+}
+
+.vp-doc .heading-toggle-all {
+    position: relative;
+}
+
+.vp-doc .heading-toggle-all::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: max-content;
+    max-width: min(280px, 80vw);
+    white-space: pre-line;
+    padding: 7px 10px;
+    background: var(--vp-c-text-1);
+    color: var(--vp-c-bg);
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.4;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.15s ease;
+    z-index: 100;
+}
+
+.vp-doc .heading-toggle-all:hover::after,
+.vp-doc .heading-toggle-all:focus-visible::after {
+    opacity: 1;
+    visibility: visible;
+}

@@ -81,6 +81,12 @@
     --sidebar-item-gap: 6px;
     --sidebar-item-line-height: 1.15;
     --sidebar-title-margin: 15px;
+
+
+    /* Elementos desplegables */
+    --sidebar-chevron-size: 16px;
+    --sidebar-chevron-gap: 8px;
+    --sidebar-children-indent: 20px;
 }
 
 
@@ -243,4 +249,87 @@
 /* Icono activo: permanece gris */
 .VPSidebarItem.level-1 .VPLink.active .sidebar-title i {
     color: var(--sidebar-icon);
+}
+
+/* ============================================================
+   8. ELEMENTOS DESPLEGABLES
+   ============================================================ */
+
+/* Padre con hijos: texto y flecha juntos */
+.VPSidebarItem.level-1.collapsible > .item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--sidebar-chevron-gap);
+}
+
+/* Enlace ajustado al texto */
+.VPSidebarItem.level-1.collapsible > .item > .VPLink {
+    width: auto;
+    flex: 0 1 auto;
+    min-width: 0;
+}
+
+/* El título no ocupa toda la fila */
+.VPSidebarItem.level-1.collapsible > .item .sidebar-title {
+    width: auto;
+}
+
+/* Botón desplegable */
+.VPSidebarItem.level-1 > .item > .caret {
+    position: static;
+    width: 22px;
+    height: 22px;
+    flex: 0 0 22px;
+    margin: 0;
+    padding: 0;
+}
+
+/* Ocultar la flecha original */
+.VPSidebarItem.level-1 > .item > .caret .vpi-chevron-right {
+    display: none;
+}
+/* Triángulo discreto */
+.VPSidebarItem.level-1 > .item > .caret::after {
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 6px solid #94a3b8;
+    transition: transform 0.2s;
+}
+
+/* Desplegado: apunta hacia abajo */
+.VPSidebarItem.level-1:not(.collapsed) > .item > .caret::after {
+    transform: rotate(90deg);
+}
+
+/*!* Nueva flecha *!*/
+/*.VPSidebarItem.level-1 > .item > .caret::after {*/
+/*    content: '❯';*/
+/*    display: inline-block;*/
+/*    font-size: 18px;*/
+/*    font-weight: 700;*/
+/*    color: #1D4ED8;*/
+/*    transition: transform 0.2s;*/
+/*}*/
+
+/*!* Girar al desplegar *!*/
+/*.VPSidebarItem.level-1.collapsed > .item > .caret::after {*/
+/*    transform: rotate(0deg);*/
+/*}*/
+
+/*.VPSidebarItem.level-1:not(.collapsed) > .item > .caret::after {*/
+/*    transform: rotate(90deg);*/
+/*}*/
+
+/* ============================================================
+   9. SANGRÍA DE LOS HIJOS
+   ============================================================ */
+
+/* Nivel 2: Selectivas, Repetitivas... */
+.VPSidebarItem.level-2 > .item {
+    padding-left: var(--sidebar-children-indent) !important;
 }

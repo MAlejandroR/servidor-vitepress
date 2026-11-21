@@ -16,7 +16,7 @@ Los pasos de repositorio cambian. Si algo no cuadra, **gana la página oficial**
 - [macOS](https://docs.docker.com/desktop/setup/install/mac-install/)
 :::
 
-En [Comandos Linux](/02_entornos_herramientas/linux) vimos que `apt` solo instala lo que conocen **sus repositorios**. Docker **no** está (completo) en los oficiales de Ubuntu: hay que añadir el repositorio de Docker Inc. Abajo está el recorte; no hace falta memorizar cada línea.
+En [Comandos Linux](/entornos/linux/) vimos que `apt` solo instala lo que conocen **sus repositorios**. Docker **no** está (completo) en los oficiales de Ubuntu: hay que añadir el repositorio de Docker Inc. Abajo está el recorte; no hace falta memorizar cada línea.
 
 ## Ubuntu (motor + Compose)
 

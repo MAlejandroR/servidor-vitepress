@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
+    "docs:build": "vitepress build docs && node scripts/copiar-soluciones.mjs",
     "docs:preview": "vitepress preview docs"
   },
   "keywords": [],
@@ -19,6 +19,7 @@
     "markdown-it-container": "^4.0.0",
     "markdown-it-footnote": "^4.0.0",
     "mermaid": "^11.16.0",
+    "vite-plugin-static-copy": "^4.1.1",
     "vitepress": "^1.6.4",
     "vitepress-plugin-mermaid": "^2.0.17"
   },

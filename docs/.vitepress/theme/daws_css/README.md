@@ -2,7 +2,7 @@
 
 Archivos listos para copiar a `docs/.vitepress/theme/`:
 
-- `custom.css` en la raíz de `theme/`.
+- `_custom.css` en la raíz de `theme/`.
 - Los otros seis archivos en `theme/styles/`.
 
 En `theme/index.ts`, importar `styles/colors.css` **antes** de los otros CSS:

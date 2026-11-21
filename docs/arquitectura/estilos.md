@@ -10,7 +10,7 @@
 | `styles/sumary.css` | Índices de contenidos de los temas |
 | `styles/table.css` | Tablas personalizadas |
 | `styles/title.css` | Títulos, numeración automática y cabecera |
-| `custom.css` | Tipografía, layout y estilos generales de VitePress |
+| `_custom.css` | Tipografía, layout y estilos generales de VitePress |
 | `<style scoped>` de Vue | Estilos exclusivos de cada componente |
 
 **Criterio:** los colores se definen en `colors.css` y se utilizan mediante variables CSS en el resto de los archivos.
@@ -62,14 +62,14 @@ Tamaño base del contenido: **20px**.
 
 | Elemento | Fuente | Tamaño | Peso | Interlineado | Archivo |
 |---|---|---|---|---|---|
-| Texto general | Verdana | 20px | 400 | 1.5 | `custom.css` |
-| Párrafos | Verdana | 20px | 400 | 1.5 | `custom.css` |
-| Listas | Verdana | 20px | 400 | 1.5 | `custom.css` |
-| Tablas | Verdana | 20px | 400 | 1.5 | `custom.css` |
+| Texto general | Verdana | 20px | 400 | 1.5 | `_custom.css` |
+| Párrafos | Verdana | 20px | 400 | 1.5 | `_custom.css` |
+| Listas | Verdana | 20px | 400 | 1.5 | `_custom.css` |
+| Tablas | Verdana | 20px | 400 | 1.5 | `_custom.css` |
 | H1 | Verdana | 2rem (32px) | 700 | 1.3 | `title.css` |
 | H2 | Verdana | 1.6rem (25.6px) | 700 | 1.3 | `title.css` |
 | H3 | Verdana | 1.35rem (21.6px) | 700 | 1.3 | `title.css` |
-| Texto secundario | Verdana | 0.9rem (14.4px) | 400 | 1.5 | `custom.css` |
+| Texto secundario | Verdana | 0.9rem (14.4px) | 400 | 1.5 | `_custom.css` |
 | Código inline | Monoespaciada | 0.95em | 400 | Normal | VitePress |
 | Código en bloques | Monoespaciada | Según VitePress | 400 | Según VitePress | VitePress |
 | Cabecera de container | Verdana | 1.25rem (20px) | 700 | 1.4 | `containers.css` |
@@ -77,7 +77,7 @@ Tamaño base del contenido: **20px**.
 | Subtítulo de container | Verdana | 1.1rem (17.6px) | 700 | 1.4 | `containers.css` |
 | Título interior de objetivos | Verdana | 1.5rem (24px) | 800 | 1.4 | `containers.css` |
 | Índice de tema | Verdana | 0.82rem (13.12px) | 400 | 1.45 | `sumary.css` |
-| Sidebar | Verdana | Según VitePress | 400/700 | Según VitePress | `custom.css` |
+| Sidebar | Verdana | Según VitePress | 400/700 | Según VitePress | `_custom.css` |
 
 > Los valores en `rem` se calculan suponiendo un tamaño raíz de 16px.
 
@@ -152,15 +152,15 @@ Los colores se definen en `styles/colors.css`.
 
 | Elemento | Propiedad | Valor | Archivo |
 |---|---|---|---|
-| Sidebar izquierdo | Anchura | `220px` | `custom.css` |
-| Layout | Anchura máxima | `1800px` | `custom.css` |
-| Contenido sin outline | Anchura máxima | Sin límite adicional | `custom.css` |
+| Sidebar izquierdo | Anchura | `220px` | `_custom.css` |
+| Layout | Anchura máxima | `1800px` | `_custom.css` |
+| Contenido sin outline | Anchura máxima | Sin límite adicional | `_custom.css` |
 | Página de contenidos | Anchura máxima | `1200px` | `hero.css` |
-| Texto general | Tamaño | `20px` | `custom.css` |
-| Texto general | Interlineado | `1.5` | `custom.css` |
-| Fuente | Familia | `Verdana, sans-serif` | `custom.css` |
-| Imágenes | Radio de borde | `16px` | `custom.css` |
-| Separadores `hr` | Grosor | `3px` | `custom.css` |
+| Texto general | Tamaño | `20px` | `_custom.css` |
+| Texto general | Interlineado | `1.5` | `_custom.css` |
+| Fuente | Familia | `Verdana, sans-serif` | `_custom.css` |
+| Imágenes | Radio de borde | `16px` | `_custom.css` |
+| Separadores `hr` | Grosor | `3px` | `_custom.css` |
 
 ### Tablas
 
@@ -192,14 +192,14 @@ Los colores se definen en `styles/colors.css`.
 | Elemento | Color principal | Muestra | Archivo |
 |---|---|---|---|
 | Cabecera de navegación | `#24547D` | <span style="display:inline-block;width:45px;height:22px;background:#24547D;border-radius:4px"></span> | `title.css` |
-| Botón principal | `#24547D` | <span style="display:inline-block;width:45px;height:22px;background:#24547D;border-radius:4px"></span> | `custom.css` |
+| Botón principal | `#24547D` | <span style="display:inline-block;width:45px;height:22px;background:#24547D;border-radius:4px"></span> | `_custom.css` |
 | Botón hover | `#173B59` | <span style="display:inline-block;width:45px;height:22px;background:#173B59;border-radius:4px"></span> | `hero.css` |
-| Bloque `tip` | `#176B50` | <span style="display:inline-block;width:45px;height:22px;background:#176B50;border-radius:4px"></span> | `custom.css` |
-| Bloque `info` | `#24547D` | <span style="display:inline-block;width:45px;height:22px;background:#24547D;border-radius:4px"></span> | `custom.css` |
-| Bloque `warning` | `#9A5B08` | <span style="display:inline-block;width:45px;height:22px;background:#9A5B08;border-radius:4px"></span> | `custom.css` |
-| Bloque `danger` | `#B91C1C` | <span style="display:inline-block;width:45px;height:22px;background:#B91C1C;border-radius:4px"></span> | `custom.css` |
-| Enlaces | `#24547D` | <span style="display:inline-block;width:45px;height:22px;background:#24547D;border-radius:4px"></span> | `custom.css` |
-| Enlaces hover | `#176B50` | <span style="display:inline-block;width:45px;height:22px;background:#176B50;border-radius:4px"></span> | `custom.css` |
+| Bloque `tip` | `#176B50` | <span style="display:inline-block;width:45px;height:22px;background:#176B50;border-radius:4px"></span> | `_custom.css` |
+| Bloque `info` | `#24547D` | <span style="display:inline-block;width:45px;height:22px;background:#24547D;border-radius:4px"></span> | `_custom.css` |
+| Bloque `warning` | `#9A5B08` | <span style="display:inline-block;width:45px;height:22px;background:#9A5B08;border-radius:4px"></span> | `_custom.css` |
+| Bloque `danger` | `#B91C1C` | <span style="display:inline-block;width:45px;height:22px;background:#B91C1C;border-radius:4px"></span> | `_custom.css` |
+| Enlaces | `#24547D` | <span style="display:inline-block;width:45px;height:22px;background:#24547D;border-radius:4px"></span> | `_custom.css` |
+| Enlaces hover | `#176B50` | <span style="display:inline-block;width:45px;height:22px;background:#176B50;border-radius:4px"></span> | `_custom.css` |
 
 ---
 
@@ -207,7 +207,7 @@ Los colores se definen en `styles/colors.css`.
 
 1. Los colores se definen exclusivamente en `styles/colors.css`.
 2. Los demás CSS utilizan `var(--daws-...)` en lugar de repetir códigos hexadecimales.
-3. La tipografía general se configura en `custom.css`.
+3. La tipografía general se configura en `_custom.css`.
 4. La numeración y apariencia de H1, H2 y H3 se gestionan en `title.css`.
 5. Todos los containers se estilizan desde `containers.css`.
 6. Los componentes Vue mantienen sus estilos `scoped` cuando son específicos del componente.
@@ -227,7 +227,7 @@ Queda pendiente:
 - [ ] Centralizar todas las variables en `colors.css`.
 - [ ] Limpiar y reorganizar `containers.css`.
 - [ ] Unificar tamaños de letra y márgenes.
-- [ ] Revisar `custom.css` y eliminar duplicidades.
+- [ ] Revisar `_custom.css` y eliminar duplicidades.
 - [ ] Actualizar `title.css`, `hero.css`, `sumary.css` y `table.css`.
 - [ ] Revisar el modo oscuro.
 - [ ] Migrar `Objetivos.vue` al container `::: objetivos`.

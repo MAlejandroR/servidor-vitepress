@@ -1,191 +1,453 @@
+
 <script setup>
 import { onMounted, onBeforeUnmount, nextTick, watch } from 'vue'
-import { useRoute } from 'vitepress'
-import { onContentUpdated } from 'vitepress'
+import { useRoute, onContentUpdated } from 'vitepress'
 
-// Ruta actual de VitePress.
-// Permite reinicializar el componente al navegar entre páginas.
 const route = useRoute()
 
-// Contenedor principal del documento Markdown.
 let container = null
+let currentPath = null
+let lastHash = null
+let scrollFrame = null
 
-// Conjunto de identificadores (id) de los títulos plegados.
+// Secciones que están plegadas.
 const collapsed = new Set()
 
+// Vista actual: 'resumida', 'expandida', 'esquema' o 'personalizada'.
+let viewMode = 'resumida'
+
 /**
- * Actualiza la visibilidad de las secciones.
- *
- * Recorre los elementos del documento y determina cuáles deben
- * ocultarse según los títulos que estén plegados.
- *
- * La jerarquía se respeta:
- * - h1 contiene sus h2 y h3.
- * - h2 contiene sus h3.
- * - h3 contiene su contenido hasta el siguiente título.
+ * Obtiene los títulos H1, H2 y H3 del documento.
+ */
+function getHeadings() {
+  if (!container) return []
+
+  return [...container.querySelectorAll(
+      ':scope > h1, :scope > h2, :scope > h3'
+  )].filter(heading => heading.id)
+}
+
+/**
+ * Actualiza la visibilidad de títulos y contenidos.
  */
 function updateVisibility() {
   if (!container) return
 
-  // Pila que representa las secciones activas.
+  const headings = getHeadings()
   const active = []
 
   for (const element of container.children) {
-
-    // Identificamos los títulos h1, h2 y h3.
-    // Los demás elementos tienen nivel 0.
     const level = /^H[1-3]$/.test(element.tagName)
         ? Number(element.tagName[1])
         : 0
 
     if (level) {
-
-      // Cuando encontramos un título de igual o mayor jerarquía,
-      // terminamos las secciones anteriores correspondientes.
-      //
-      // Ejemplo: al encontrar un h2, termina el h2 anterior
-      // y cualquier h3 que estuviera dentro de él.
-      while (active.length && active.at(-1).level >= level) {
+      while (
+          active.length &&
+          active.at(-1).level >= level
+          ) {
         active.pop()
       }
 
-      // El título se oculta si pertenece a una sección
-      // superior que está plegada.
-      element.hidden = active.some(section => section.closed)
+      // En modo esquema, todos los títulos son visibles.
+      // En los demás modos se respeta la jerarquía.
+      element.hidden = viewMode === 'esquema'
+          ? false
+          : active.some(section => section.closed)
 
-      // Registramos la nueva sección en la pila.
       active.push({
         level,
         closed: collapsed.has(element.id)
       })
 
-      continue
+    } else {
+      if (viewMode === 'esquema') {
+        // Cada título controla su propio contenido,
+        // aunque sus superiores estén plegados.
+        element.hidden = active.length > 0 && active.at(-1).closed
+      } else {
+        // Respetar la jerarquía completa.
+        element.hidden = active.some(section => section.closed)
+      }
     }
-
-    // Los elementos que no son títulos (párrafos, tablas,
-    // bloques de código, listas...) se ocultan si alguna
-    // de sus secciones contenedoras está plegada.
-    element.hidden = active.some(section => section.closed)
   }
 
-  // Actualizamos el aspecto y los atributos de accesibilidad
-  // de los botones de plegado.
-  container.querySelectorAll('.heading-toggle').forEach(button => {
+  // Actualizar las flechas individuales.
+  for (const heading of headings) {
+    const button = heading.querySelector('.heading-toggle')
+    if (!button) continue
 
-    const heading = button.closest('h1, h2, h3')
     const closed = collapsed.has(heading.id)
 
-    // Flecha derecha: plegado.
-    // Flecha abajo: desplegado.
     button.textContent = closed ? '▸' : '▾'
-
-    // Indica a los lectores de pantalla si está desplegado.
     button.setAttribute('aria-expanded', String(!closed))
-
-    // Descripción accesible de la acción.
     button.setAttribute(
         'aria-label',
         closed ? 'Desplegar sección' : 'Plegar sección'
     )
-  })
+  }
+
+  updateControls()
 }
 
 /**
- * Inicializa los botones de plegado.
- *
- * Localiza los títulos del documento y añade una flecha
- * a cada uno, sin modificar el texto del título ni sus enlaces.
+ * Abre o cierra un apartado individual.
  */
-function initialize() {
-  container = document.querySelector('.vp-doc > div');
-  console.log('Contenedor:', container)
-
-  if (!container) return
-
-  console.log(
-      'Títulos directos:',
-      container.querySelectorAll(':scope > h1, :scope > h2, :scope > h3').length
-  )
-
-  console.log(
-      'Todos los títulos:',
-      container.querySelectorAll('h1, h2, h3').length
-  )
-
-  // Al entrar en una página, todas las secciones
-  // comienzan desplegadas.
-  collapsed.clear()
-
-  // Seleccionamos únicamente los títulos principales
-  // del documento, no los incluidos dentro de otros componentes.
-  const headings = container.querySelectorAll(
-      ':scope > h1, :scope > h2, :scope > h3'
-  );
-
-
-  for (const heading of headings) {
-
-    // Evitamos añadir botones duplicados.
-    // También descartamos títulos sin identificador.
-    if (!heading.id || heading.querySelector('.heading-toggle')) {
-      continue
-    }
-
-    // Creamos el botón que actuará como flecha.
-    const button = document.createElement('button')
-
-    button.type = 'button'
-    button.className = 'heading-toggle'
-    button.textContent = '▾'
-
-    // Atributos de accesibilidad.
-    button.setAttribute('aria-label', 'Plegar sección')
-    button.setAttribute('aria-expanded', 'true')
-
-    // Al pulsar la flecha, alternamos el estado de la sección.
-    button.addEventListener('click', () => {
-
-      if (collapsed.has(heading.id)) {
-        // La sección estaba plegada: la desplegamos.
-        collapsed.delete(heading.id)
-      } else {
-        // La sección estaba desplegada: la plegamos.
-        collapsed.add(heading.id)
-      }
-
-      // Aplicamos los cambios de visibilidad.
-      updateVisibility()
-    })
-
-    // Insertamos la flecha después  del título.
-    heading.appendChild(button);
+function toggleSection(heading) {
+  if (collapsed.has(heading.id)) {
+    collapsed.delete(heading.id)
+  } else {
+    collapsed.add(heading.id)
   }
 
-  // Mostramos inicialmente todas las secciones.
+  // Conservamos el modo esquema para que los títulos
+  // permanezcan visibles al abrir apartados individuales.
+  if (viewMode !== 'esquema') {
+    viewMode = 'personalizada'
+  }
+
   updateVisibility()
 }
 
 /**
- * Se ejecuta cuando Vue monta el componente.
- *
- * Esperamos a que VitePress haya generado el contenido
- * Markdown antes de buscar los títulos.
+ * Vista resumida:
+ * H1 desplegados; H2 y H3 plegados.
  */
-// onMounted(async () => {
-//   await nextTick()
-//   initialize()
-// })
+function showSummary() {
+  viewMode = 'resumida'
+  collapsed.clear()
+
+  for (const heading of getHeadings()) {
+    if (heading.tagName !== 'H1') {
+      collapsed.add(heading.id)
+    }
+  }
+
+  updateVisibility()
+}
+
+/**
+ * Vista expandida:
+ * Todos los apartados abiertos.
+ */
+function showExpanded() {
+  viewMode = 'expandida'
+  collapsed.clear()
+  updateVisibility()
+}
+
+/**
+ * Vista esquema:
+ * Todos los títulos visibles, contenidos plegados.
+ */
+function collapseAll() {
+  viewMode = 'esquema'
+  collapsed.clear()
+
+  for (const heading of getHeadings()) {
+    collapsed.add(heading.id)
+  }
+
+  updateVisibility()
+}
+
+/**
+ * Alterna entre expandir todo y contraer todo.
+ */
+function expandAll() {
+  const headings = getHeadings()
+
+  const isExpanded = headings.length > 0 &&
+      headings.every(heading => !collapsed.has(heading.id))
+
+  if (isExpanded) {
+    collapseAll()
+  } else {
+    showExpanded()
+  }
+}
+
+/**
+ * Actualiza los botones globales.
+ */
+function updateControls() {
+  if (!container) return
+
+  const headings = getHeadings()
+
+  const isExpanded = headings.length > 0 &&
+      headings.every(heading => !collapsed.has(heading.id))
+
+  const isSummary = viewMode !== 'esquema' &&
+      headings.length > 0 &&
+      headings.every(heading =>
+          heading.tagName === 'H1'
+              ? !collapsed.has(heading.id)
+              : collapsed.has(heading.id)
+      )
+
+  const summaryButton =
+      container.querySelector('.heading-summary')
+
+  const expandButton =
+      container.querySelector('.heading-expand')
+
+  if (summaryButton) {
+    summaryButton.classList.toggle('is-active', isSummary)
+    summaryButton.setAttribute(
+        'aria-pressed',
+        String(isSummary)
+    )
+  }
+
+  if (expandButton) {
+    expandButton.textContent = isExpanded
+        ? 'Contraer todo'
+        : 'Expandir todo'
+
+    expandButton.classList.toggle('is-active', isExpanded)
+    expandButton.setAttribute(
+        'aria-pressed',
+        String(isExpanded)
+    )
+  }
+}
+
+/**
+ * Crea los controles antes del primer H1.
+ */
+function initializeGlobalButton() {
+  if (!container) return
+  if (container.querySelector('.heading-controls')) return
+
+  const firstH1 = container.querySelector(':scope > h1')
+  if (!firstH1) return
+
+  const controls = document.createElement('div')
+  controls.className = 'heading-controls'
+
+  const info = document.createElement('span')
+  info.className = 'heading-controls-info'
+  info.textContent =
+      'Pulsa en los títulos para desplegar los apartados.'
+
+  const actions = document.createElement('div')
+  actions.className = 'heading-controls-actions'
+
+  const summaryButton = document.createElement('button')
+  summaryButton.type = 'button'
+  summaryButton.className =
+      'heading-toggle-all heading-summary'
+  summaryButton.textContent = 'Vista resumida'
+  // summaryButton.title = 'Muestra el contenido de títulos principales(1,2,...).\nMantiene plegados títulos secundarios (1.1 ...).';
+  summaryButton.dataset.tooltip = 'Muestra el contenido de títulos principales(1,2,...).\n Mantiene plegados títulos secundarios (1.1 ...).';
+  summaryButton.addEventListener('click', showSummary)
+
+  const expandButton = document.createElement('button')
+  expandButton.type = 'button'
+  expandButton.className =
+      'heading-toggle-all heading-expand'
+  expandButton.textContent = 'Expandir todo'
+  expandButton.dataset.tooltip =  'Expande - Contrae todo el contenido\n' +
+      ' agrupado por títulos';
+
+  expandButton.addEventListener('click', expandAll)
+
+  actions.append(summaryButton, expandButton)
+  controls.append(info, actions)
+
+  firstH1.before(controls)
+}
+
+/**
+ * Despliega un apartado indicado mediante #hash
+ * y todos sus títulos superiores.
+ *
+ * También permite navegar a un elemento situado
+ * dentro de un apartado.
+ */
+function expandFromHash() {
+  if (!container || !window.location.hash) return false
+
+  let id
+
+  try {
+    id = decodeURIComponent(window.location.hash.slice(1))
+  } catch {
+    return false
+  }
+
+  const target = document.getElementById(id)
+
+  if (!target || !container.contains(target)) {
+    return false
+  }
+
+  const headings = getHeadings()
+  const ancestors = []
+
+  // Localizar el título de destino, si existe.
+  const targetIndex = headings.indexOf(target)
+
+  if (targetIndex >= 0) {
+    const targetLevel = Number(target.tagName[1])
+
+    // Abrir el título de destino.
+    ancestors.push(target)
+
+    // Buscar sus H1/H2 superiores.
+    let requiredLevel = targetLevel
+
+    for (let i = targetIndex - 1; i >= 0; i--) {
+      const heading = headings[i]
+      const level = Number(heading.tagName[1])
+
+      if (level < requiredLevel) {
+        ancestors.push(heading)
+        requiredLevel = level
+      }
+
+      if (requiredLevel === 1) break
+    }
+
+  } else {
+    // Si el destino no es un título, localizar
+    // la sección que contiene ese elemento.
+    const preceding = headings.filter(heading =>
+        Boolean(
+            heading.compareDocumentPosition(target) &
+            Node.DOCUMENT_POSITION_FOLLOWING
+        )
+    )
+
+    let requiredLevel = 4
+
+    for (let i = preceding.length - 1; i >= 0; i--) {
+      const heading = preceding[i]
+      const level = Number(heading.tagName[1])
+
+      if (level < requiredLevel) {
+        ancestors.push(heading)
+        requiredLevel = level
+      }
+
+      if (requiredLevel === 1) break
+    }
+  }
+
+  // Abrir únicamente los apartados necesarios.
+  for (const heading of ancestors) {
+    collapsed.delete(heading.id)
+  }
+
+  updateVisibility()
+
+  // Desplazamiento después de actualizar el DOM.
+  if (scrollFrame !== null) {
+    cancelAnimationFrame(scrollFrame)
+  }
+
+  scrollFrame = requestAnimationFrame(() => {
+    scrollFrame = null
+
+    if (!target.isConnected) return
+
+    target.scrollIntoView({
+      behavior: 'instant',
+      block: 'start'
+    })
+  })
+
+  return true
+}
+
+/**
+ * Procesa el hash solamente cuando cambia.
+ * Si todavía no existe el destino, permite
+ * reintentarlo tras actualizar el contenido.
+ */
+function processHash() {
+  const hash = window.location.hash
+  if (!hash || hash === lastHash) return
+
+  if (expandFromHash()) {
+    lastHash = hash
+  }
+}
+
+/**
+ * Inicializa el documento.
+ */
+function initialize() {
+  const nextContainer = document.querySelector('.vp-doc > div')
+  if (!nextContainer) return
+
+  container = nextContainer
+
+  const headings = getHeadings()
+
+  // Nueva página: recuperar la vista resumida.
+  if (currentPath !== route.path) {
+    currentPath = route.path
+    lastHash = null
+    viewMode = 'resumida'
+
+    collapsed.clear()
+
+    for (const heading of headings) {
+      if (heading.tagName !== 'H1') {
+        collapsed.add(heading.id)
+      }
+    }
+  }
+
+  // Crear flechas en los títulos.
+  for (const heading of headings) {
+    if (heading.querySelector('.heading-toggle')) continue
+
+    const button = document.createElement('button')
+    button.type = 'button'
+    button.className = 'heading-toggle'
+    button.textContent = '▾'
+    button.setAttribute('aria-label', 'Plegar sección')
+
+    heading.addEventListener('click', event => {
+      if (event.target.closest('a')) return
+      toggleSection(heading)
+    })
+
+    heading.appendChild(button)
+  }
+
+  initializeGlobalButton()
+  updateVisibility()
+  processHash()
+}
+
+/**
+ * Detecta actualizaciones del contenido VitePress.
+ */
 onContentUpdated(() => {
   initialize()
 })
 
 /**
- * Detecta los cambios de página en VitePress.
- *
- * Cuando cambia la ruta:
- * 1. Esperamos a que Vue actualice el documento.
- * 2. Buscamos los nuevos títulos.
- * 3. Inicializamos sus botones.
+ * Detecta cambios del fragmento de la URL.
+ */
+function handleHashChange() {
+  processHash()
+}
+
+/**
+ * Registrar el listener al montar el componente.
+ */
+onMounted(() => {
+  window.addEventListener('hashchange', handleHashChange)
+  initialize()
+})
+
+/**
+ * Navegación entre páginas de VitePress.
  */
 watch(
     () => route.path,
@@ -198,33 +460,34 @@ watch(
 
 /**
  * Limpieza al desmontar el componente.
- *
- * Restauramos la visibilidad del documento y eliminamos
- * los botones añadidos para no dejar modificaciones
- * pendientes en el DOM.
  */
 onBeforeUnmount(() => {
+  window.removeEventListener('hashchange', handleHashChange)
+
+  if (scrollFrame !== null) {
+    cancelAnimationFrame(scrollFrame)
+    scrollFrame = null
+  }
+
   if (container) {
     for (const element of container.children) {
       element.hidden = false
     }
 
-    container.querySelectorAll('.heading-toggle').forEach(button => {
-      button.remove()
-    })
+    container.querySelectorAll('.heading-toggle')
+        .forEach(button => button.remove())
+
+    container.querySelector('.heading-controls')?.remove()
   }
 
   collapsed.clear()
   container = null
+  currentPath = null
+  lastHash = null
+  viewMode = 'resumida'
 })
 </script>
 
 <template>
-  <!--
-    Componente sin representación visual propia.
-
-    Su función consiste en modificar los títulos y controlar
-    el plegado del contenido Markdown generado por VitePress.
-  -->
   <span style="display: none"></span>
 </template>

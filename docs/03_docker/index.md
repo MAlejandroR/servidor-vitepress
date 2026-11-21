@@ -41,22 +41,22 @@ Una forma de empaquetar PHP, Apache y lo que haga falta en un **contenedor Linux
 
 <CardPane>
 <Card header="1. Conceptos" color="#2496ed">
-[Imagen, contenedor, kernel](/02_entornos_herramientas/docker/conceptos). Por qué en Windows hace falta WSL.
+[Imagen, contenedor, kernel](/docker/conceptos/). Por qué en Windows hace falta WSL.
 </Card>
 <Card header="2. Instalación" color="#16a34a">
-[Motor en Ubuntu o Docker Desktop](/02_entornos_herramientas/docker/instalacion). El repositorio externo de `apt`.
+[Motor en Ubuntu o Docker Desktop](/docker/instalaciones/). El repositorio externo de `apt`.
 </Card>
 <Card header="3. Comandos" color="#0f766e">
-[Estados, `run`, puertos, volúmenes, `exec`](/02_entornos_herramientas/docker/comandos) y limpieza mínima.
+[Estados, `run`, puertos, volúmenes, `exec`](/docker/comandos/) y limpieza mínima.
 </Card>
 <Card header="4. Dockerfile" color="#d97706">
-[La receta](/02_entornos_herramientas/docker/dockerfile). En clase partimos de `php:8.3-apache`.
+[La receta](/docker/dockerfile/). En clase partimos de `php:8.3-apache`.
 </Card>
 <Card header="5. Compose" color="#4f46e5">
-[El laboratorio](/02_entornos_herramientas/docker/compose): servicio `web`, puerto 8800, carpeta `app`.
+[El laboratorio](/docker/compose/): servicio `web`, puerto 8800, carpeta `app`.
 </Card>
 <Card header="6. Práctica" color="#e11d48">
-[Ruta de la semana](/02_entornos_herramientas/docker/practica), del `hello-world` al compose de clase.
+[Ruta de la semana](/docker/practica/), del `hello-world` al compose de clase.
 </Card>
 </CardPane>
 
@@ -66,7 +66,7 @@ Una forma de empaquetar PHP, Apache y lo que haga falta en un **contenedor Linux
 - Navegador: `http://localhost:8800`
 - Si “no arranca”: `docker compose ps` y `docker compose logs -f`
 
-Los recortes de ficheros también están en [Instalaciones](/02_entornos_herramientas/instalaciones/). La chuleta de terminal, en [Comandos Linux](/02_entornos_herramientas/linux).
+Los recortes de ficheros también están en [Instalaciones](/entornos-herramientas/instalaciones/). La chuleta de terminal, en [Comandos Linux](/entornos/linux/).
 :::
 
 ::: referencias Documentación

@@ -110,7 +110,15 @@ const contenidos = [
     descripcion: 'MVC, rutas, controladores, Eloquent y aplicaciones web completas.',
     icono: 'fa-brands fa-laravel',
     enlace: '/laravel/'
-  }
+  },
+
+  {
+    numero: 9,
+    titulo: 'Arquitectura y componentes de los apuntes',
+    descripcion: 'Web informativa de los elementos utilizados en estos apuntes.',
+    icono: 'fa-solid fa-sitemap',
+    enlace: '/arquitectura/'
+    }
 ]
 
 </script>

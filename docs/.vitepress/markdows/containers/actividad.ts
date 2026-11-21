@@ -1,8 +1,8 @@
 import type MarkdownIt from 'markdown-it'
-import { crearContainer } from '../crearContainer'
+import { old_crearContainer } from '../old_crearContainer'
 
 export function registrarActividad(md: MarkdownIt) {
-    crearContainer(md, {
+    old_crearContainer(md, {
         nombre: 'actividad',
         titulo: 'Para hacer ahora',
         icono: 'fa-solid fa-pencil'

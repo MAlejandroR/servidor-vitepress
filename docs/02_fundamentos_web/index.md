@@ -24,7 +24,7 @@ Estudiaremos los elementos que intervienen en la comunicación entre un **client
 <Card
 header="Conceptos generales"
 icon="fa-solid fa-lightbulb"
-link="./01_conceptos_generales/"
+link="./conceptos_generales/"
 >
 Aplicaciones web, cliente, servidor y arquitectura web.
 </Card>
@@ -32,7 +32,7 @@ Aplicaciones web, cliente, servidor y arquitectura web.
 <Card
 header="Redes"
 icon="fa-solid fa-network-wired"
-link="./02_redes/"
+link="./redes/"
 >
 Equipos, direcciones IP, puertos y comunicación.
 </Card>
@@ -40,7 +40,7 @@ Equipos, direcciones IP, puertos y comunicación.
 <Card
 header="OSI y TCP/IP"
 icon="fa-solid fa-layer-group"
-link="./03_osi_tcpip/"
+link="./osi_tcpip/"
 >
 Modelos de referencia y protocolos de comunicación.
 </Card>
@@ -48,7 +48,7 @@ Modelos de referencia y protocolos de comunicación.
 <Card
 header="Internet"
 icon="fa-solid fa-globe"
-link="./04_internet/"
+link="./internet/"
 >
 Qué es Internet y cómo funciona.
 </Card>
@@ -56,7 +56,7 @@ Qué es Internet y cómo funciona.
 <Card
 header="World Wide Web"
 icon="fa-solid fa-earth-europe"
-link="./05_www/"
+link="./www/"
 >
 Navegadores, servidores, recursos y direcciones web.
 </Card>
@@ -64,7 +64,7 @@ Navegadores, servidores, recursos y direcciones web.
 <Card
 header="HTTP y HTTPS"
 icon="fa-solid fa-arrow-right-arrow-left"
-link="./06_http_https/"
+link="./http_https/"
 >
 Peticiones, respuestas y comunicación segura.
 </Card>
@@ -72,7 +72,7 @@ Peticiones, respuestas y comunicación segura.
 <Card
 header="Servidores web"
 icon="fa-solid fa-server"
-link="./07_servidores_web/"
+link="./servidores_web/"
 >
 Cómo reciben y atienden las solicitudes de los clientes.
 </Card>

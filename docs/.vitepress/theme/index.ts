@@ -14,6 +14,7 @@ import './styles/table.css'
 import './styles/title.css'
 import './styles/hero.css'
 import './styles/sidebar.css'
+import './styles/images.css'
 
 
 import Layout from './Layout.vue'

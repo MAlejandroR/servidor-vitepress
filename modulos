@@ -1,0 +1,99 @@
+docs/.vitepress
+├── config
+│   ├── nav
+│   │   ├── 01_presentacion.ts
+│   │   ├── 02_fundamentos_web.ts
+│   │   ├── 03_arquitectura_web.ts
+│   │   ├── 03_docker.ts
+│   │   ├── 04_herramientas.ts
+│   │   ├── 05_instalaciones.ts
+│   │   ├── 06_introduccion_programacion.ts
+│   │   ├── 08_php.ts
+│   │   ├── 08_laravel.ts
+│   │   ├── 100_arquitectura.ts
+│   │   ├── index.ts
+│   │   └── utils.ts
+│   └── rewrites
+│       ├── 01_presentacion.ts
+│       ├── 02_fundamentos_web.ts
+│       ├── 03_fundamentos_arquitectura.ts
+│       ├── 04_entornos_herramientas.ts
+│       ├── 06_docker.ts
+│       ├── 08_php.ts
+│       ├── 0_contenido.ts
+│       └── index.ts
+├── config.mts
+├── markdows
+│   ├── containers
+│   │   ├── actividad.ts
+│   │   ├── definicion.ts
+│   │   ├── finalidad.ts
+│   │   ├── objetivos.ts
+│   │   ├── pageinfo.ts
+│   │   ├── practica.ts
+│   │   ├── pregunta.ts
+│   │   ├── previo.ts
+│   │   ├── recuerda.ts
+│   │   └── referencias.ts
+│   ├── containers.ts
+│   ├── crearContainer.ts
+│   ├── definicion.ts
+│   └── index.ts
+├── mi404_html
+├── site.ts
+└── theme
+    ├── components
+    │   ├── ButtonSlides.vue
+    │   ├── CardPane.vue
+    │   ├── Card.vue
+    │   ├── CmdPane.vue
+    │   ├── Cmd.vue
+    │   ├── CollapsibleHeading.vue
+    │   ├── Color.vue
+    │   ├── Definicion.vue
+    │   ├── DropDown.vue
+    │   ├── ejercicios
+    │   │   ├── catalogo.js
+    │   │   ├── Ejercicio.vue
+    │   │   └── TituloEjercicio.vue
+    │   ├── EnConstruccion.vue
+    │   ├── Footer.vue
+    │   ├── IndiceCurso.vue
+    │   ├── ObjetivosModulo.vue
+    │   ├── Objetivos.vue
+    │   ├── PhpRunner.vue
+    │   ├── PrintButton.vue
+    │   ├── Quiz.vue
+    │   ├── RequestJourney.vue
+    │   ├── StackOficial.vue
+    │   └── VisitorCount.vue
+    ├── custom.css
+    ├── daws_css
+    │   ├── custom.css
+    │   ├── README.md
+    │   └── styles
+    │       ├── colors.css
+    │       ├── containers.css
+    │       ├── hero.css
+    │       ├── sumary.css
+    │       ├── table.css
+    │       └── title.css
+    ├── env.d.ts
+    ├── favicon.ts
+    ├── img_1.png
+    ├── img.png
+    ├── index.ts
+    ├── Layout.vue
+    ├── markdown-it-container.d.ts
+    ├── README.md
+    └── styles
+        ├── colors.css
+        ├── containers.css
+        ├── hero.css
+        ├── images.css
+        ├── sidebar.css
+        ├── sumary.css
+        ├── table.css
+        └── title.css
+
+12 directories, 85 files

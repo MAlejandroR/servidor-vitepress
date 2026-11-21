@@ -10,12 +10,12 @@ Antes de programar de verdad hace falta un **taller**. No es el “tema 1” de 
 
 ## Elemenos a analizar en este bloque
 
-- [Git](/02_entornos_herramientas/git) — commits, ramas, remoto
-- [Docker](../02_docker/index.md) — prioridad: al menos **8 horas**
-- [IA en clase](/02_entornos_herramientas/ia) — cómo se usa (y cómo no)
-- [Comandos Linux](/02_entornos_herramientas/linux) — lo mínimo para el servidor
-- [Redes](/02_entornos_herramientas/redes/) · [OSI](/02_entornos_herramientas/osi/) · [Internet](/02_entornos_herramientas/internet/) · [WWW](/02_entornos_herramientas/www/)
-- [Instalaciones](/02_entornos_herramientas/instalaciones/) — Apache, PHP, XAMPP, compose
+- [Git](/herramientas/git/) — commits, ramas, remoto
+- [Docker](/docker/) — prioridad: al menos **8 horas**
+- [IA en clase](/herramientas/ia/) — cómo se usa (y cómo no)
+- [Comandos Linux](/entornos/linux/) — lo mínimo para el servidor
+- [Redes](/fundamentos-web/redes/) · [OSI](/fundamentos-web/modelos-de-red/) · [Internet](/fundamentos-web/internet/) · [WWW](/fundamentos-web/web/)
+- [Instalaciones](/entornos-herramientas/instalaciones/) — Apache, PHP, XAMPP, compose
 
 ::: warning Docker no es un extra
 Si el entorno no es el mismo para toda la clase, el resto del módulo se convierte en “en mi máquina sí”. Por eso Docker tiene una semana propia.
@@ -30,7 +30,7 @@ En esta unidad aprenderemos a preparar nuestro entorno de trabajo y a utilizar h
 
 Conoceremos los fundamentos de Linux, su sistema de archivos y los comandos esenciales para trabajar desde la terminal.
 
-**[<i class="fa-solid fa-arrow-right"></i> Acceder a Linux](/herramientas/linux/)**
+**[<i class="fa-solid fa-arrow-right"></i> Acceder a Linux](/entornos/linux/)**
 
 ## <i class="fa-brands fa-git-alt"></i> Git y control de versiones
 
@@ -48,10 +48,10 @@ Exploraremos el uso de asistentes de IA para comprender código, resolver proble
 
 Prepararemos las herramientas y los servicios necesarios para desarrollar y ejecutar aplicaciones web.
 
-**[<i class="fa-solid fa-arrow-right"></i> Acceder a instalaciones](/herramientas/instalaciones/)**
+**[<i class="fa-solid fa-arrow-right"></i> Acceder a instalaciones](/entornos-herramientas/instalaciones/)**
 
 ## <i class="fa-solid fa-server"></i> Servidor web Apache
 
 Estudiaremos el funcionamiento, instalación y configuración de Apache como servidor web.
 
-**[<i class="fa-solid fa-arrow-right"></i> Acceder a Apache](/herramientas/apache/)**
+**[<i class="fa-solid fa-arrow-right"></i> Acceder a Apache](/04_entornos_herramientas/04_instalaciones/apache/)**

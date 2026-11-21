@@ -2,7 +2,7 @@
 
 Archivos listos para copiar a `docs/.vitepress/theme/`:
 
-- `custom.css` en la raíz de `theme/`.
+- `_custom.css` en la raíz de `theme/`.
 - Los otros seis archivos en `theme/styles/`.
 
 En `theme/index.ts`, importar `styles/colors.css` **antes** de los otros CSS:
@@ -36,3 +36,11 @@ Mantener los imports restantes del proyecto (tema VitePress, fuentes, Font Aweso
 4. Revisar especialmente títulos H1/H2/H3, modo oscuro y cualquier CSS scoped de componentes Vue.
 
 Los colores del diseño cambian respecto al CSS original; no es una refactorización visualmente idéntica.
+
+## Pendientes
+- sidebar left comprimir extender
+![img.png](img.png)
+![img_1.png](img_1.png)
+
+- Componente de ejercicio (A1)
+- 

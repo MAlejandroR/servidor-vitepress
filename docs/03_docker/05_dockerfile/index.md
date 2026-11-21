@@ -82,7 +82,7 @@ En `php:8.3-apache` eso ya viene resuelto. Si construyes desde `ubuntu`, lo tien
 `apt-get update` y el `install` en la **misma** capa, y al final `rm -rf /var/lib/apt/lists/*`, para no dejar caché inútil en la imagen.
 :::
 
-Siguiente paso: no lanzar esto a mano cada vez, sino un [Compose](../06_compose/index.md) que haga `build`, puertos y volumen.
+Siguiente paso: no lanzar esto a mano cada vez, sino un [Compose](/docker/compose/) que haga `build`, puertos y volumen.
 
 ## FROM
 
